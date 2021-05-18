@@ -3,76 +3,90 @@
   {{!-- Sheet Header --}}
   <header class="sheet-header">
     <div class="header-fields">
-      <div class="baseinfo flexrow">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-        <div class="info-text">
-          <h1 class="charname">
-            <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
-          </h1>
-          <h2 class="info flexrow">
-            <input name="pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns" />
-            <input name="handle" type="text" value="{{data.handle}}" placeholder="Handle" />
-          </h2>
+      <div class=flexrow>
+        
+        <div class="flexcol">
+          <div class="baseinfo flexrow">
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
+              width="100" />
+            <div class="info-text flexcol">
+              <h1 class="charname">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+              </h1>
+              <h2>
+                <input name="handle" type="text" value="{{data.handle}}" placeholder="Handle" />
+              </h2>
+              <h2>
+                <input name="pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns" />
+              </h2>
+            </div>
+            <div class="resources grid grid-1col">
+              <div class="resource flex-group-center">
+                <label for="data.burden.value" class="resource-label">Burden</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="data.burden.value" value="{{data.health.value}}" data-dtype="Number" />
+                </div>
+              </div>
+              <div class="resource flex-group-center">
+                <label for="data.cash.value" class="resource-label">Cash</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="data.cash.value" value="{{data.cash.value}}" data-dtype="Number" />
+                </div>
+              </div>
+              <div class="resource flex-group-center">
+                <label for="data.prep.value" class="resource-label">Prep</label>
+                <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="data.prep.value" value="{{data.prep.value}}" data-dtype="Number" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-      use both the "grid" and "grid-Ncol" class where "N" can be any number
-      from 1 to 12 and will create that number of columns. --}}
-      <div class="info-numbers">
-        <div class="abilities grid grid-1col">
+
+        <div class="abilities flexcol">
           {{#each data.abilities as |ability key|}}
           <div class="ability flexrow flex-group-center">
-            <label for="data.abilities.{{key}}.value" class="resource-label"> {{key}}: </label>
+            <label for="data.abilities.{{key}}.value" class="resource-label ability-button rollable"
+              data-roll="2d6+@abilities.{{key}}.value" data-label="{{key}}"> {{key}}: </label>
             <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-            <span class="ability-button rollable" data-roll="2d6+@abilities.{{key}}.value"
-              data-label="{{key}}">{{numberFormat ability.value decimals=0 sign=true}}</span>
-          </div>
-          <div class="defense flexrow flex-group-center">
-            <label for="data.abilities.{{key}}.value" class="resource-label"> {{key}} defense: </label>
+            <label> Defense: </label>
             <input type="text" name="data.abilities.{{key}}.baseDefense" value="{{ability.baseDefense}}"
               data-dtype="Number" />
-          </div>
-          {{/each}}
-        </div>
-        {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-        use both the "grid" and "grid-Ncol" class where "N" can be any number
-        from 1 to 12 and will create that number of columns. --}}
-        <div class="resources grid grid-1col">
-          {{!-- "flex-group-center" is also defined in the _grid.scss file
-          and it will add a small amount of padding, a border, and will
-          center all of its child elements content and text. --}}
-          <div class="resource flex-group-center">
-            <label for="data.burden.value" class="resource-label">Burden</label>
-            <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="data.burden.value" value="{{data.health.value}}" data-dtype="Number" />
-            </div>
-          </div>
-          <div class="resource flex-group-center">
-            <label for="data.cash.value" class="resource-label">Cash</label>
-            <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="data.cash.value" value="{{data.cash.value}}" data-dtype="Number" />
-            </div>
-          </div>
-          <div class="resource flex-group-center">
-            <label for="data.prep.value" class="resource-label">Prep</label>
-            <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="data.prep.value" value="{{data.prep.value}}" data-dtype="Number" />
-            </div>
+            {{/each}}
           </div>
         </div>
+
         <div class="harm grid grid-1col">
-          <input type="checkbox" name="data.harm.minor.one" value="data.harm.minor.one"> Minor Injury
-          <input type="checkbox" name="data.harm.minor.two" value="data.harm.minor.two"> Minor Injury
-          <input type="checkbox" name="data.harm.harm.one" value="data.harm.harm.one"> Harm
-          <input type="checkbox" name="data.harm.harm.one" value="data.harm.harm.one"> Harm
-          <input type="checkbox" name="data.harm.serious.one" value="data.harm.serious.one"> Serious Injury
-          <input type="checkbox" name="data.harm.incapacitated.one" value="data.harm.incapacitated.one"> Incapacitated
+          <div>
+            <input type="checkbox" id="harm1" name="data.harm.minor.one" value="data.harm.minor.one">
+            <label for="harm1"> Minor Injury </label>
+          </div>
+          <div>
+            <input type="checkbox" id="harm2" name="data.harm.minor.two" value="data.harm.minor.two">
+            <label for="harm2"> Minor Injury </label>
+          </div>
+          <div>
+            <input type="checkbox" id="harm3" name="data.harm.harm.one" value="data.harm.harm.one">
+            <label for="harm3"> Harm </label>
+          </div>
+          <div>
+            <input type="checkbox" id="harm4" name="data.harm.harm.one" value="data.harm.harm.two">
+            <label for="harm4"> Harm </label>
+          </div>
+          <div>
+            <input type="checkbox" id="harm5" name="data.harm.serious.one" value="data.harm.serious.one">
+            <label for="harm5"> Serious Injury </label>
+          </div>
+          <div>
+            <input type="checkbox" id="harm6" name="data.harm.incapacitated.one" value="data.harm.incapacitated.one">
+            <label for="harm6"> Incapacitated </label>
+          </div>
         </div>
+
+        <h1>
+          <input name="goal" type="text" value="{{data.goal}}" placeholder="Goal">
+        </h1>
       </div>
-      <h1>
-        <input name="goal" type="text" value="{{data.goal}}" placeholder="Goal">
-      </h1>
-    </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
