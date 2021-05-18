@@ -4,7 +4,7 @@
   <header class="sheet-header">
     <div class="header-fields">
       <div class=flexrow>
-        
+
         <div class="flexcol">
           <div class="baseinfo flexrow">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
@@ -20,24 +20,25 @@
                 <input name="pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns" />
               </h2>
             </div>
-            <div class="resources grid grid-1col">
-              <div class="resource flex-group-center">
-                <label for="data.burden.value" class="resource-label">Burden</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                  <input type="text" name="data.burden.value" value="{{data.health.value}}" data-dtype="Number" />
-                </div>
+
+          </div>
+          <div class="resources flexrow">
+            <div class="resource flex-group-center">
+              <label for="data.burden.value" class="resource-label">Burden</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="data.burden.value" value="{{data.health.value}}" data-dtype="Number" />
               </div>
-              <div class="resource flex-group-center">
-                <label for="data.cash.value" class="resource-label">Cash</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                  <input type="text" name="data.cash.value" value="{{data.cash.value}}" data-dtype="Number" />
-                </div>
+            </div>
+            <div class="resource flex-group-center">
+              <label for="data.cash.value" class="resource-label">Cash</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="data.cash.value" value="{{data.cash.value}}" data-dtype="Number" />
               </div>
-              <div class="resource flex-group-center">
-                <label for="data.prep.value" class="resource-label">Prep</label>
-                <div class="resource-content flexrow flex-center flex-between">
-                  <input type="text" name="data.prep.value" value="{{data.prep.value}}" data-dtype="Number" />
-                </div>
+            </div>
+            <div class="resource flex-group-center">
+              <label for="data.prep.value" class="resource-label">Prep</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="text" name="data.prep.value" value="{{data.prep.value}}" data-dtype="Number" />
               </div>
             </div>
           </div>
@@ -52,8 +53,8 @@
             <label> Defense: </label>
             <input type="text" name="data.abilities.{{key}}.baseDefense" value="{{ability.baseDefense}}"
               data-dtype="Number" />
-            {{/each}}
           </div>
+          {{/each}}
         </div>
 
         <div class="harm grid grid-1col">
