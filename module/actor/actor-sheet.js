@@ -10,8 +10,8 @@ export class HWIActorSheet extends ActorSheet {
       classes: ["hardwiredisland", "sheet", "actor"],
       template: "systems/hard-wired-island/templates/actor/actor-sheet.html",
       width: 600,
-      height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      height: 800,
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "specialties" }]
     });
   }
 
