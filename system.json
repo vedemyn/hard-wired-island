@@ -1,0 +1,23 @@
+{
+  "name": "hard-wired-island",
+  "title": "Hard Wired Island",
+  "description": "Hard Wired Island support for FoundryVTT",
+  "version": "0.0.1",
+  "minimumCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.9",
+  "templateVersion": 2,
+  "author": "Tadeusz Wojcik",
+  "esmodules": ["module/hardwiredisland.js"],
+  "styles": ["css/hardwiredisland.css"],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "url": "https://github.com/vedemyn/hard-wired-island/",
+  "manifest": "https://raw.githubusercontent.com/vedemyn/hard-wired-island/master/system.json",
+  "download": "https://github.com/vedemyn/hard-wired-island/archive/0.0.1.zip"
+}

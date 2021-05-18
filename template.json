@@ -1,0 +1,121 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "templates": {},
+    "character": {
+      "templates": [],
+      "description": "",
+      "handle": "",
+      "pronouns": "",
+      "attributes": {
+        "burden": {
+          "min": 0,
+          "value": 0,
+          "max": 4
+        },
+        "cash": {
+          "min": 0,
+          "value": 0
+        },
+        "prep": {
+          "min": 0,
+          "value": 0
+        }
+      },
+      "abilities": {
+        "cool": {
+          "min": 0,
+          "value": 0,
+          "max": 3
+        },
+        "clever": {
+          "min": 0,
+          "value": 0,
+          "max": 3
+        },
+        "tough": {
+          "min": 0,
+          "value": 0,
+          "max": 3
+        },
+        "quick": {
+          "min": 0,
+          "value": 0,
+          "max": 3
+        }
+      },
+      "level": {
+        "min": 1,
+        "value": 1
+      },
+      "experience": {
+        "min": 0,
+        "value": 0,
+        "max": 3
+      },
+      "origin": [],
+      "occupation": [],
+      "specialties": [],
+      "talents": [],
+      "assets": [],
+      "augmentations": [],
+      "harm": {
+        "minor": {
+          "one": false,
+          "two": false
+        },
+        "harm": {
+          "one": false,
+          "two": false
+        },
+        "serious": {
+          "one": false
+        },
+        "incapacitated": {
+          "one": false
+        }
+      },
+      "goal": "",
+      "gigapp": [],
+      "notes": ""
+    }
+  },
+  "Item": {
+    "types": ["asset", "talent", "augmentation", "specialty", "occupation", "origin", "gigapp"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "asset": {
+      "templates": ["base"],
+      "tags": [],
+      "cost": 0
+    },
+    "talent": {
+      "templates": ["base"],
+      "occupation": ""
+    },
+    "augmentation": {
+      "templates": ["base"],
+      "tags": [],
+      "cost": 0
+    },
+    "specialty": {
+      "templates": ["base"],
+      "type": "",
+      "value": 0
+    },
+    "occupation": {
+      "templates": ["base"],
+      "talents": []
+    },
+    "origin": {
+      "templates": ["base"],
+      "specialties": []
+    },
+    "gigapp": {
+      "templates": ["base"]
+    }
+  }
+}
