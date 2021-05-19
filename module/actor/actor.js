@@ -49,7 +49,7 @@ export class HWIActor extends Actor {
       </div>
     </form>`
 
-    new Dialog({
+    let d = new Dialog({
       title: `Roll ${ability_name}`,
       content: content,
       buttons: {
@@ -108,7 +108,8 @@ export class HWIActor extends Actor {
         },
         default: "yes",
       }
-    }).render(true);
+    });
+    d.render(true);
   }
 
 }
