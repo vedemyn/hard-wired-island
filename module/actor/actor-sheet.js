@@ -64,7 +64,7 @@ export class HWIActorSheet extends ActorSheet {
     });
 
     // Rollable abilities.
-    html.find('.rollable').click(this._onRoll.bind(this));
+    html.find('.ability-button').click(this._onRoll.bind(this));
 
     // Drag events for macros.
     if (this.actor.owner) {
@@ -109,19 +109,9 @@ export class HWIActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onRoll(event) {
-    event.preventDefault();
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-
-    if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
-      let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label
-      });
-    }
+  async _onRoll(event) {
+    const attribute_name = $(event.currentTarget).data("rollAttribute");
+    this.actor.rollAttributePopup(attribute_name);
   }
 
 }

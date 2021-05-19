@@ -4,7 +4,6 @@
   <header class="sheet-header">
     <div class="header-fields">
       <div class=flexrow>
-
         <div class="flexcol">
           <div class="baseinfo flexrow">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
@@ -46,12 +45,12 @@
         <div class="abilities flexcol">
           {{#each data.abilities as |ability key|}}
           <div class="ability flexrow flex-group-center">
-            <label for="data.abilities.{{key}}.value" class="resource-label ability-button rollable"
-              data-roll="2d6+@abilities.{{key}}.value" data-label="{{key}}"> {{key}}: </label>
+            <label for="data.abilities.{{key}}.value" class="attribute-skill-label ability-button rollable-text"
+              data-roll-attribute={{ability}} data-label="{{key}}"> {{key}}: </label>
             <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
             <label> Defense: </label>
             <input type="text" name="data.abilities.{{key}}.baseDefense" value="{{ability.baseDefense}}"
-              data-dtype="Number" />
+              data-dtype="Number" readonly />
           </div>
           {{/each}}
         </div>
