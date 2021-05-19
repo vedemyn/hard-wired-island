@@ -45,7 +45,7 @@
         <div class="abilities flexcol">
           {{#each data.abilities as |ability key|}}
           <div class="ability flexrow flex-group-center">
-            <label for="data.abilities.{{key}}.value" class="attribute-skill-label ability-button rollable-text"
+            <label for="data.abilities.{{key}}.value" class="resource-label ability-button rollable"
               data-roll-attribute={{ability}} data-label="{{key}}"> {{key}}: </label>
             <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
             <label> Defense: </label>

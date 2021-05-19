@@ -111,7 +111,7 @@ export class HWIActorSheet extends ActorSheet {
    */
   async _onRoll(event) {
     const attribute_name = $(event.currentTarget).data("rollAttribute");
-    this.actor.rollAttributePopup(attribute_name);
+    this.actor.rollAbilityPopup(attribute_name);
   }
 
 }
