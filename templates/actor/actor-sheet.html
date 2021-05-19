@@ -10,9 +10,9 @@
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
               width="100" />
             <div class="info-text flexcol">
-              <h1 class="charname">
+              <h2 class="charname">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
-              </h1>
+              </h2>
               <h2>
                 <input name="handle" type="text" value="{{data.handle}}" placeholder="Handle" />
               </h2>
@@ -20,7 +20,6 @@
                 <input name="pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns" />
               </h2>
             </div>
-
           </div>
           <div class="resources flexrow">
             <div class="resource flex-group-center">
@@ -57,44 +56,42 @@
           {{/each}}
         </div>
 
-        <div class="harm grid grid-1col">
+        <div class="harm flexcol">
           <div>
-            <input type="checkbox" id="harm1" name="data.harm.minor.one" value="data.harm.minor.one">
-            <label for="harm1"> Minor Injury </label>
+            <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" value="data.harm.minor.one">
+            <label for="harm1">Minor Injury</label>
           </div>
           <div>
-            <input type="checkbox" id="harm2" name="data.harm.minor.two" value="data.harm.minor.two">
-            <label for="harm2"> Minor Injury </label>
+            <input class="harmbox" type="checkbox" id="harm2" name="data.harm.minor.two" value="data.harm.minor.two">
+            <label for="harm2">Minor Injury</label>
           </div>
           <div>
-            <input type="checkbox" id="harm3" name="data.harm.harm.one" value="data.harm.harm.one">
-            <label for="harm3"> Harm </label>
+            <input class="harmbox" type="checkbox" id="harm3" name="data.harm.harm.one" value="data.harm.harm.one">
+            <label for="harm3">Harm (-1)</label>
           </div>
           <div>
-            <input type="checkbox" id="harm4" name="data.harm.harm.one" value="data.harm.harm.two">
-            <label for="harm4"> Harm </label>
+            <input class="harmbox" type="checkbox" id="harm4" name="data.harm.harm.one" value="data.harm.harm.two">
+            <label for="harm4">Harm (-1)</label>
           </div>
           <div>
-            <input type="checkbox" id="harm5" name="data.harm.serious.one" value="data.harm.serious.one">
-            <label for="harm5"> Serious Injury </label>
+            <input class="harmbox" type="checkbox" id="harm5" name="data.harm.serious.one" value="data.harm.serious.one">
+            <label for="harm5">Serious Injury (-1d)</label>
           </div>
           <div>
-            <input type="checkbox" id="harm6" name="data.harm.incapacitated.one" value="data.harm.incapacitated.one">
-            <label for="harm6"> Incapacitated </label>
+            <input class="harmbox" type="checkbox" id="harm6" name="data.harm.incapacitated.one" value="data.harm.incapacitated.one">
+            <label for="harm6">Incapacitated</label>
           </div>
         </div>
       </div>
-      <h1>
         <input name="goal" type="text" value="{{data.goal}}" placeholder="Goal">
-      </h1>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="specialties">Specialties</a>
-    <a class="item" data-tab="occupation">Occupation & Talents</a>
-    <a class="item" data-tab="assets">Assets & Augmentations</a>
+    <a class="item" data-tab="occupation">Occupation</a>
+    <a class="item" data-tab="assets">Assets</a>
     <a class="item" data-tab="notes">Notes</a>
   </nav>
 
@@ -103,22 +100,20 @@
 
     {{!-- Specialties Tab --}}
     <div class="tab specialties" data-group="primary" data-tab="specialties">
-      <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-image"></div>
-          <div class="item-name">Name</div>
-          <div class="item-controls">
-            <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add
-              item</a>
+      <ol class="specialties-list">
+        <li class="specialty flexrow item-header">
+          <div class="specialty-name">Name</div>
+          <div class="specialty-controls">
+            <a class="specialty-control specialty-create" title="Create Specialty" data-type="specialty"><i class="fas fa-plus"></i> Add
+              specialty</a>
           </div>
         </li>
         {{#each actor.gear as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-          <h4 class="item-name">{{item.name}}</h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        <li class="specialty flexrow" data-item-id="{{specialty._id}}">
+          <h4 class="specialty-name">{{specialty.name}}</h4>
+          <div class="specialty-controls">
+            <a class="specialty-control specialty-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
+            <a class="specialty-control specialty-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
           </div>
         </li>
         {{/each}}
@@ -127,22 +122,22 @@
 
     {{!-- Occupation Tab --}}
     <div class="tab occupation" data-group="primary" data-tab="occupation">
-      <ol class="items-list">
-        <li class="item flexrow item-header">
-          <div class="item-image"></div>
-          <div class="item-name">Name</div>
-          <div class="item-controls">
-            <a class="item-control item-create" title="Create item" data-type="feature"><i class="fas fa-plus"></i> Add
+      <ol class="talent-list">
+        <li class="talent flexrow item-header">
+          <div class="talent-image"></div>
+          <div class="talent-name">Name</div>
+          <div class="talent-controls">
+            <a class="talent-control talent-create" title="Create talent" data-type="feature"><i class="fas fa-plus"></i> Add
               item</a>
           </div>
         </li>
         {{#each actor.features as |item id|}}
-        <li class="item flexrow" data-item-id="{{item._id}}">
-          <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
-          <h4 class="item-name">{{item.name}}</h4>
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        <li class="talent flexrow" data-item-id="{{talent._id}}">
+          <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
+          <h4 class="talent-name">{{item.name}}</h4>
+          <div class="talent-controls">
+            <a class="talent-control talent-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
+            <a class="talent-control talent-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
           </div>
         </li>
         {{/each}}
