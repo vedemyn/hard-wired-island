@@ -35,17 +35,17 @@ export class HWIActor extends Actor {
     <form>
       <div class="form-group">
         <label>Advantage:</label>
-        <input id="advantage" name="advantage" type="text" placeholder="0" data-dtype="Number"/>
+        <input id="advantage" name="advantage" type="text" value="0" data-dtype="Number"/>
         <label>Disdvantage:</label>
-        <input id="disadvantage" name="disadvantage" type="text" placeholder="0" data-dtype="Number"/>
+        <input id="disadvantage" name="disadvantage" type="text" value="0" data-dtype="Number"/>
         <label>Boost:</label>
-        <input id="boost" name="boost" type="text" placeholder="0" data-dtype="Number"/>
+        <input id="boost" name="boost" type="text" value="0" data-dtype="Number"/>
         <label>Specialties:</label>
-        <input id="specialties" name="specialties" type="text" placeholder="0" data-dtype="Number"/>
+        <input id="specialties" name="specialties" type="text" value="0" data-dtype="Number"/>
         <label>Other Bonuses:</label>
-        <input id="other" name="other" type="text" placeholder="0" data-dtype="Number"/>
+        <input id="other" name="other" type="text" value="0" data-dtype="Number"/>
         <label>Target Number:</label>
-        <input id="tn" name="tn" type="text" placeholder="0" data-dtype="Number"/>
+        <input id="tn" name="tn" type="text" value="0" data-dtype="Number"/>
       </div>
     </form>`
 
@@ -59,7 +59,7 @@ export class HWIActor extends Actor {
           callback: (html) => {
 
             let diceAmount = 2 + parseInt(html.find('[name="boost"]')[0].value);
-            if (this.data.data.harm.serious) {
+            if (this.data.data.harm.serious.one) {
               diceAmount--;
             }
             if (diceAmount < 0) { diceAmount = 0; }
@@ -67,13 +67,20 @@ export class HWIActor extends Actor {
             let bonus = parseInt(html.find('[name="specialties"]')[0].value) +
               parseInt(html.find('[name="other"]')[0].value);
             if (ability_name === "cool") {
-              bonus += this.data.data.abilities.cool;
+              bonus += this.data.data.abilities.cool.value;
             } else if (ability_name === "clever") {
-              bonus += this.data.data.abilities.clever;
+              bonus += this.data.data.abilities.clever.value;
             } else if (ability_name === "tough") {
-              bonus += this.data.data.abilities.tough;
+              bonus += this.data.data.abilities.tough.value;
             } else if (ability_name === "quick") {
-              bonus += this.data.data.abilities.quick;
+              bonus += this.data.data.abilities.quick.value;
+            }
+
+            if (this.data.data.harm.harm.one) {
+              bonus--;
+            }
+            if (this.data.data.harm.harm.two) {
+              bonus--;
             }
 
             let tn = parseInt(html.find('[name="tn"]')[0].value);
