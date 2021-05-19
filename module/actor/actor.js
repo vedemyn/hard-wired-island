@@ -58,10 +58,14 @@ export class HWIActor extends Actor {
           label: "Roll",
           callback: (html) => {
 
+            let advAmount = parseInt(html.find('[name="advantage"]')[0].value) -
+              parseInt(html.find('[name="disadvantage"]')[0].value);
+
             let diceAmount = 2 + parseInt(html.find('[name="boost"]')[0].value);
             if (this.data.data.harm.serious.one) {
               diceAmount--;
             }
+            diceAmount += Math.abs(advAmount);
             if (diceAmount < 0) { diceAmount = 0; }
 
             let bonus = parseInt(html.find('[name="specialties"]')[0].value) +
@@ -84,9 +88,6 @@ export class HWIActor extends Actor {
             }
 
             let tn = parseInt(html.find('[name="tn"]')[0].value);
-
-            let advAmount = parseInt(html.find('[name="advantage"]')[0].value) +
-              parseInt(html.find('[name="disadvantage"]')[0].value);
 
             let rollString = `${diceAmount}d6`
 
