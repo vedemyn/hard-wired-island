@@ -11,13 +11,13 @@
               width="100" />
             <div class="info-text flexcol">
               <h2 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" data-dtype="String"/>
               </h2>
               <h2>
-                <input name="handle" type="text" value="{{data.handle}}" placeholder="Handle" />
+                <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle" data-dtype="String"/>
               </h2>
               <h2>
-                <input name="pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns" />
+                <input name="data.pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns" data-dtype="String"/>
               </h2>
             </div>
           </div>
@@ -25,7 +25,7 @@
             <div class="resource flex-group-center">
               <label for="data.burden.value" class="resource-label">Burden</label>
               <div class="resource-content flexrow flex-center flex-between">
-                <input type="text" name="data.burden.value" value="{{data.health.value}}" data-dtype="Number" />
+                <input type="text" name="data.burden.value" value="{{data.burden.value}}" data-dtype="Number" />
               </div>
             </div>
             <div class="resource flex-group-center">
@@ -58,32 +58,32 @@
 
         <div class="harm flexcol">
           <div>
-            <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" value="data.harm.minor.one">
+            <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" value="{{data.harm.minor.one}}" data-dtype="Boolean">
             <label for="harm1">Minor Injury</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm2" name="data.harm.minor.two" value="data.harm.minor.two">
+            <input class="harmbox" type="checkbox" id="harm2" name="data.harm.minor.two" value="{{data.harm.minor.two}}" data-dtype="Boolean">
             <label for="harm2">Minor Injury</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm3" name="data.harm.harm.one" value="data.harm.harm.one">
+            <input class="harmbox" type="checkbox" id="harm3" name="data.harm.harm.one" value="{{data.harm.harm.one}}" data-dtype="Boolean">
             <label for="harm3">Harm (-1)</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm4" name="data.harm.harm.one" value="data.harm.harm.two">
+            <input class="harmbox" type="checkbox" id="harm4" name="data.harm.harm.one" value="{{data.harm.harm.two}}" data-dtype="Boolean">
             <label for="harm4">Harm (-1)</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm5" name="data.harm.serious.one" value="data.harm.serious.one">
+            <input class="harmbox" type="checkbox" id="harm5" name="data.harm.serious.one" value="{{data.harm.serious.one}}" data-dtype="Boolean">
             <label for="harm5">Serious Injury (-1d)</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm6" name="data.harm.incapacitated.one" value="data.harm.incapacitated.one">
+            <input class="harmbox" type="checkbox" id="harm6" name="data.harm.incapacitated.one" value="{{data.harm.incapacitated.one}}" data-dtype="Boolean">
             <label for="harm6">Incapacitated</label>
           </div>
         </div>
       </div>
-        <input name="goal" type="text" value="{{data.goal}}" placeholder="Goal">
+        <input name="data.goal" type="text" value="{{data.goal}}" placeholder="Goal" data-dtype="String">
     </div>
   </header>
 
