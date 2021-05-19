@@ -97,7 +97,7 @@ export class HWIActor extends Actor {
               } else {
                 rollString += `dh`;
               }
-              rollString += `${advAmount}`;
+              rollString += `${Math.abs(advAmount)}`;
             }
 
             rollString += `+${bonus}`;
