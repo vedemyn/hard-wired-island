@@ -100,11 +100,11 @@ export class HWIActor extends Actor {
               speaker: ChatMessage.getSpeaker({ actor: this.actor }),
               flavor: label
             });
-          },
-          no: {
-            icon: "<i class='fas fa-times'></i>",
-            label: "Close",
-          },
+          }
+        },
+        no: {
+          icon: "<i class='fas fa-times'></i>",
+          label: "Close",
         },
         default: "yes",
       }
