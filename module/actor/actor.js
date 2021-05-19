@@ -102,12 +102,13 @@ export class HWIActor extends Actor {
             });
           }
         },
+
         no: {
           icon: "<i class='fas fa-times'></i>",
           label: "Close",
         },
-        default: "yes",
-      }
+      },
+      default: "yes",
     });
     d.render(true);
   }
