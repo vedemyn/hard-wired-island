@@ -108,8 +108,8 @@
               specialty</a>
           </div>
         </li>
-        {{#each actor.gear as |item id|}}
-        <li class="specialty flexrow" data-item-id="{{specialty._id}}">
+        {{#each data.specialty as |specialty id|}}
+        <li class="specialty flexrow" data-specialty-id="{{specialty._id}}">
           <h4 class="specialty-name">{{specialty.name}}</h4>
           <div class="specialty-controls">
             <a class="specialty-control specialty-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
@@ -131,7 +131,7 @@
               item</a>
           </div>
         </li>
-        {{#each actor.features as |item id|}}
+        {{#each data.talent as |talent id|}}
         <li class="talent flexrow" data-item-id="{{talent._id}}">
           <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
           <h4 class="talent-name">{{item.name}}</h4>
@@ -155,7 +155,7 @@
               asset</a>
           </div>
         </li>
-        {{#each actor.assets as |asset id|}}
+        {{#each data.assets as |asset id|}}
         <li class="asset flexrow" data-asset-id="{{asset._id}}">
           <div class="asset-image"><img src="{{asset.img}}" title="{{asset.name}}" width="24" height="24" /></div>
           <h4 class="asset-name">{{asset.name}}</h4>

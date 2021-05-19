@@ -8,52 +8,37 @@
       "pronouns": "",
       "attributes": {
         "burden": {
-          "min": 0,
-          "value": 0,
-          "max": 4
+          "value": 0
         },
         "cash": {
-          "min": 0,
           "value": 0
         },
         "prep": {
-          "min": 0,
           "value": 0
         }
       },
       "abilities": {
         "cool": {
-          "min": 0,
-          "value": 0,
-          "max": 3
+          "value": 0
         },
         "clever": {
-          "min": 0,
-          "value": 0,
-          "max": 3
+          "value": 0
         },
         "tough": {
-          "min": 0,
-          "value": 0,
-          "max": 3
+          "value": 0
         },
         "quick": {
-          "min": 0,
-          "value": 0,
-          "max": 3
+          "value": 0
         }
       },
       "level": {
-        "min": 1,
         "value": 1
       },
       "experience": {
-        "min": 0,
-        "value": 0,
-        "max": 3
+        "value": 0
       },
-      "origin": [],
-      "occupation": [],
+      "origin": {},
+      "occupation": {},
       "specialties": [],
       "talents": [],
       "assets": [],
@@ -75,7 +60,12 @@
         }
       },
       "goal": "",
-      "gigapp": [],
+      "gigapp": {
+        "gigapp": {
+          "value": "",
+          "type": "String"
+        }
+      },
       "notes": ""
     }
   },

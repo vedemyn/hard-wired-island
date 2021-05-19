@@ -25,11 +25,8 @@ export class HWIActor extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
 
-    // Make modifications to data here. For example:
-
     // Loop through ability scores and set their defense values based on them.
     for (let [key, ability] of Object.entries(data.abilities)) {
-      // Calculate the modifier using d20 rules.
       ability.baseDefense = ability.value + 7;
     }
   }
