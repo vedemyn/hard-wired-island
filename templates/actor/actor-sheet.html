@@ -102,6 +102,8 @@
       <ol class="specialties-list">
         <li class="specialty flexrow item-header">
           <div class="specialty-name">Name</div>
+          <div class="specialty-name">Type</div>
+          <div class="specialty-name">Value</div>
           <div class="specialty-controls">
             <a class="specialty-control item-create" title="Create Specialty" data-type="specialty"><i class="fas fa-plus"></i> Add
               specialty</a>
@@ -110,6 +112,8 @@
         {{#each data.specialties as |specialty id|}}
         <li class="specialty flexrow" data-specialty-id="{{specialty._id}}">
           <h4 class="specialty-name">{{specialty.name}}</h4>
+          <h4 class="specialty-value">{{specialty.value}}</h4>
+          <h4 class="specialty-value">{{specialty.type}}</h4>
           <div class="specialty-controls">
             <a class="specialty-control specialty-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
             <a class="specialty-control specialty-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
@@ -161,6 +165,26 @@
           <div class="asset-controls">
             <a class="asset-control asset-edit" title="Edit Asset"><i class="fas fa-edit"></i></a>
             <a class="asset-control asset-delete" title="Delete Asset"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      <ol class="augmentations-list">
+        <li class="augmentation flexrow asset-header">
+          <div class="augmentation-image"></div>
+          <div class="augmentation-name">Name</div>
+          <div class="augmentation-controls">
+            <a class="augmentation-control item-create" title="Create augmentation" data-type="augmentation"><i class="fas fa-plus"></i> Add
+              augmentation</a>
+          </div>
+        </li>
+        {{#each data.augmentations as |augmentation id|}}
+        <li class="augmentation flexrow" data-asset-id="{{augmentation._id}}">
+          <div class="augmentation-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24" height="24" /></div>
+          <h4 class="augmentation-name">{{augmentation.name}}</h4>
+          <div class="augmentation-controls">
+            <a class="augmentation-control augmentation-edit" title="Edit Augmentation"><i class="fas fa-edit"></i></a>
+            <a class="augmentation-control augmentation-delete" title="Delete Augmentation"><i class="fas fa-trash"></i></a>
           </div>
         </li>
         {{/each}}
