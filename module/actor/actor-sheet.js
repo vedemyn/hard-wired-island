@@ -25,6 +25,10 @@ export class HWIActorSheet extends ActorSheet {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
 
+    if (this.actor.data.type == 'character'){
+      this._prepareCharacterItems(data);
+    }
+
     return data;
   }
 
@@ -36,6 +40,21 @@ export class HWIActorSheet extends ActorSheet {
    * @return {undefined}
    */
 
+  _prepareCharacterItems(sheetData) {
+    const actorData = sheetData.actor;
+    const assets = [];
+
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+
+      if (i.type === 'asset') {
+        assets.push(i);
+      }
+    }
+
+    actorData.assets = assets;
+  }
 
   /* -------------------------------------------- */
 
