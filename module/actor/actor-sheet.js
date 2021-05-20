@@ -43,6 +43,12 @@ export class HWIActorSheet extends ActorSheet {
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor.data;
     const assets = [];
+    const talents = [];
+    const augmentations = [];
+    const specialties = [];
+    const occupations = [];
+    // const origin; //how to handle these....
+    // const gigapp;
 
     for (let i of sheetData.items) {
       let item = i.data;
@@ -50,10 +56,22 @@ export class HWIActorSheet extends ActorSheet {
 
       if (i.type === 'asset') {
         assets.push(i);
-      }
+      } else if (i.type === 'talent') {
+        talents.push(i);
+      } else if (i.type === 'augmentation') {
+        augmentations.push(i);
+      } else if (i.type === 'specialty') {
+        specialties.push(i);
+      } else if (i.type === 'occupation') {
+        occupations.push(i);
+      } 
     }
 
     actorData.assets = assets;
+    actorData.talents = talents;
+    actorData.augmentations = augmentations;
+    actorData.specialties = specialties;
+    actorData.occupations = occupations;
   }
 
   /* -------------------------------------------- */

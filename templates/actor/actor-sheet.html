@@ -107,7 +107,7 @@
               specialty</a>
           </div>
         </li>
-        {{#each data.specialty as |specialty id|}}
+        {{#each data.specialties as |specialty id|}}
         <li class="specialty flexrow" data-specialty-id="{{specialty._id}}">
           <h4 class="specialty-name">{{specialty.name}}</h4>
           <div class="specialty-controls">
@@ -122,18 +122,18 @@
     {{!-- Occupation Tab --}}
     <div class="tab occupation" data-group="primary" data-tab="occupation">
       <ol class="talent-list">
-        <li class="talent flexrow item-header">
+        <li class="talent flexrow talent-header">
           <div class="talent-image"></div>
           <div class="talent-name">Name</div>
           <div class="talent-controls">
-            <a class="talent-control talent-create" title="Create talent" data-type="feature"><i class="fas fa-plus"></i> Add
-              item</a>
+            <a class="talent-control talent-create" title="Create talent" data-type="talent"><i class="fas fa-plus"></i> Add
+              talent</a>
           </div>
         </li>
-        {{#each data.talent as |talent id|}}
-        <li class="talent flexrow" data-item-id="{{talent._id}}">
+        {{#each data.talents as |talent id|}}
+        <li class="talent flexrow" data-talent-id="{{talent._id}}">
           <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
-          <h4 class="talent-name">{{item.name}}</h4>
+          <h4 class="talent-name">{{talent.name}}</h4>
           <div class="talent-controls">
             <a class="talent-control talent-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
             <a class="talent-control talent-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
