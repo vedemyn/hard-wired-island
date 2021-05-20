@@ -38,7 +38,7 @@
         "value": 0
       },
       "origin": {},
-      "occupations": [],
+      "occupation": "",
       "specialties": [],
       "talents": [],
       "assets": [],
@@ -70,7 +70,7 @@
     }
   },
   "Item": {
-    "types": ["asset", "talent", "augmentation", "specialty", "occupation", "origin", "gigapp"],
+    "types": ["asset", "talent", "augmentation", "specialty", "origin", "gigapp"],
     "templates": {
       "base": {
         "description": ""
@@ -94,10 +94,6 @@
       "templates": ["base"],
       "type": "",
       "value": 0
-    },
-    "occupation": {
-      "templates": ["base"],
-      "talents": []
     },
     "origin": {
       "templates": ["base"],
