@@ -47,34 +47,34 @@ export class HWIActorSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     // Add Inventory Item
-    html.find('.item-create').click(this._onItemCreate.bind(this));
+    html.find('.asset-create').click(this._onAssetCreate.bind(this));
 
-    // Update Inventory Item
-    html.find('.item-edit').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
-      item.sheet.render(true);
-    });
+    // // Update Inventory Item
+    // html.find('.item-edit').click(ev => {
+    //   const li = $(ev.currentTarget).parents(".item");
+    //   const item = this.actor.getOwnedItem(li.data("itemId"));
+    //   item.sheet.render(true);
+    // });
 
-    // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
-      li.slideUp(200, () => this.render(false));
-    });
+    // // Delete Inventory Item
+    // html.find('.item-delete').click(ev => {
+    //   const li = $(ev.currentTarget).parents(".item");
+    //   this.actor.deleteOwnedItem(li.data("itemId"));
+    //   li.slideUp(200, () => this.render(false));
+    // });
 
     // Rollable abilities.
     html.find('.ability-button').click(this._onRoll.bind(this));
 
-    // Drag events for macros.
-    if (this.actor.owner) {
-      let handler = ev => this._onDragStart(ev);
-      html.find('li.item').each((i, li) => {
-        if (li.classList.contains("inventory-header")) return;
-        li.setAttribute("draggable", true);
-        li.addEventListener("dragstart", handler, false);
-      });
-    }
+    // // Drag events for macros.
+    // if (this.actor.owner) {
+    //   let handler = ev => this._onDragStart(ev);
+    //   html.find('li.item').each((i, li) => {
+    //     if (li.classList.contains("inventory-header")) return;
+    //     li.setAttribute("draggable", true);
+    //     li.addEventListener("dragstart", handler, false);
+    //   });
+    // }
   }
 
   /**
@@ -82,7 +82,7 @@ export class HWIActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onItemCreate(event) {
+  _onAssetCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
