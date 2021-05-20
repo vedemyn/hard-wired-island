@@ -41,7 +41,7 @@ export class HWIActorSheet extends ActorSheet {
    */
 
   _prepareCharacterItems(sheetData) {
-    const actorData = sheetData.actor;
+    const actorData = sheetData.actor.data;
     const assets = [];
 
     for (let i of sheetData.items) {
