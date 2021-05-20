@@ -4,19 +4,21 @@
   <header class="sheet-header">
     <div class="header-fields">
       <div class=flexrow>
-        <div class="flexcol">
-          <div class="baseinfo flexrow">
+        <div class="baseinfo flexcol">
+          <div class="flexrow">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
               width="100" />
             <div class="info-text flexcol">
               <h2 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" data-dtype="String"/>
+                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" data-dtype="String" />
               </h2>
               <h2>
-                <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle" data-dtype="String"/>
+                <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle"
+                  data-dtype="String" />
               </h2>
               <h2>
-                <input name="data.pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns" data-dtype="String"/>
+                <input name="data.pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns"
+                  data-dtype="String" />
               </h2>
             </div>
           </div>
@@ -24,44 +26,61 @@
             <div class="resource flex-group-center">
               <label for="data.burden.value" class="resource-label">Burden</label>
               <div class="resource-content flexrow flex-center flex-between">
-                <input type="text" name="data.attributes.burden.value" value="{{data.attributes.burden.value}}" data-dtype="Number" />
+                <input type="text" name="data.attributes.burden.value" value="{{data.attributes.burden.value}}"
+                  data-dtype="Number" />
               </div>
             </div>
             <div class="resource flex-group-center">
               <label for="data.cash.value" class="resource-label">Cash</label>
               <div class="resource-content flexrow flex-center flex-between">
-                <input type="text" name="data.attributes.cash.value" value="{{data.attributes.cash.value}}" data-dtype="Number" />
+                <input type="text" name="data.attributes.cash.value" value="{{data.attributes.cash.value}}"
+                  data-dtype="Number" />
               </div>
             </div>
             <div class="resource flex-group-center">
               <label for="data.prep.value" class="resource-label">Prep</label>
               <div class="resource-content flexrow flex-center flex-between">
-                <input type="text" name="data.attributes.prep.value" value="{{data.attributes.prep.value}}" data-dtype="Number" />
+                <input type="text" name="data.attributes.prep.value" value="{{data.attributes.prep.value}}"
+                  data-dtype="Number" />
               </div>
             </div>
+          </div>
+          <div>
+            <h2 class="origin">
+              <input name="name" type="text" value="{{actor.origin}}" placeholder="Origin" data-dtype="String" />
+            </h2>
+            <h2 class="occupation">
+              <input name="name" type="text" value="{{actor.occupation}}" placeholder="Occupation" data-dtype="String" />
+            </h2>
           </div>
         </div>
 
         <div class="abilities flexcol">
           {{#each data.abilities as |ability key|}}
           <div class="ability flexrow flex-group-center">
-            <label for="data.abilities.{{key}}.value" class="resource-label ability-button rollable"
-              data-roll-attribute={{ability}} data-label="{{key}}"> {{key}}: </label>
-            <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-            <label> Defense: </label>
-            <input type="text" name="data.abilities.{{key}}.baseDefense" value="{{ability.baseDefense}}"
-              data-dtype="Number" readonly />
+            <div>
+              <label for="data.abilities.{{key}}.value" class="resource-label ability-button rollable"
+                data-roll-attribute={{ability}} data-label="{{key}}"> {{key}}: </label>
+              <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
+            </div>
+            <div>
+              <label> Defense: </label>
+              <input type="text" name="data.abilities.{{key}}.baseDefense" value="{{ability.baseDefense}}"
+                data-dtype="Number" readonly />
+            </div>
           </div>
           {{/each}}
         </div>
 
         <div class="harm flexcol">
           <div>
-            <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" {{checked data.harm.minor.one}}>
+            <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" {{checked
+              data.harm.minor.one}}>
             <label for="harm1">Minor Injury</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm2" name="data.harm.minor.two" {{checked data.harm.minor.two}}>
+            <input class="harmbox" type="checkbox" id="harm2" name="data.harm.minor.two" {{checked
+              data.harm.minor.two}}>
             <label for="harm2">Minor Injury</label>
           </div>
           <div>
@@ -73,16 +92,18 @@
             <label for="harm4">Harm (-1)</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm5" name="data.harm.serious.one" {{checked data.harm.serious.one}}>
+            <input class="harmbox" type="checkbox" id="harm5" name="data.harm.serious.one" {{checked
+              data.harm.serious.one}}>
             <label for="harm5">Serious Injury (-1d)</label>
           </div>
           <div>
-            <input class="harmbox" type="checkbox" id="harm6" name="data.harm.incapacitated.one" {{checked data.harm.incapacitated.one}}>
+            <input class="harmbox" type="checkbox" id="harm6" name="data.harm.incapacitated.one" {{checked
+              data.harm.incapacitated.one}}>
             <label for="harm6">Incapacitated</label>
           </div>
         </div>
       </div>
-        <input name="data.goal" type="text" value="{{data.goal}}" placeholder="Goal" data-dtype="String">
+      <input name="data.goal" type="text" value="{{data.goal}}" placeholder="Goal" data-dtype="String">
     </div>
   </header>
 
@@ -105,7 +126,8 @@
           <div class="specialty-type">Type</div>
           <div class="specialty-value">Value</div>
           <div class="specialty-controls">
-            <a class="specialty-control item-create" title="Create Specialty" data-type="specialty"><i class="fas fa-plus"></i> Add
+            <a class="specialty-control item-create" title="Create Specialty" data-type="specialty"><i
+                class="fas fa-plus"></i> Add
               specialty</a>
           </div>
         </li>
@@ -131,14 +153,15 @@
           <div class="talent-name">Name</div>
           <div class="talent-description">Description</div>
           <div class="talent-controls">
-            <a class="talent-control item-create" title="Create talent" data-type="talent"><i class="fas fa-plus"></i> Add
+            <a class="talent-control item-create" title="Create talent" data-type="talent"><i class="fas fa-plus"></i>
+              Add
               talent</a>
           </div>
         </li>
         {{#each data.talents as |talent id|}}
         <li class="item flexrow" data-item-id="{{talent._id}}">
           <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
-          <h4 class="talent-name">{{talent.name}}</h4>          
+          <h4 class="talent-name">{{talent.name}}</h4>
           <h4 class="talent-description">{{talent.data.description}}</h4>
           <div class="talent-controls">
             <a class="talent-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
@@ -185,13 +208,15 @@
           <div class="augmentation-tags">Tags</div>
           <div class="augmentation-description">Description</div>
           <div class="augmentation-controls">
-            <a class="augmentation-control item-create" title="Create augmentation" data-type="augmentation"><i class="fas fa-plus"></i> Add
+            <a class="augmentation-control item-create" title="Create augmentation" data-type="augmentation"><i
+                class="fas fa-plus"></i> Add
               augmentation</a>
           </div>
         </li>
         {{#each data.augmentations as |augmentation id|}}
         <li class="item flexrow" data-item-id="{{augmentation._id}}">
-          <div class="augmentation-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24" height="24" /></div>
+          <div class="augmentation-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24"
+              height="24" /></div>
           <h4 class="augmentation-name">{{augmentation.name}}</h4>
           <h4 class="augmentation-cost">{{augmentation.data.cost}}</h4>
           <h4 class="augmentation-tags">{{augmentation.data.tags}}</h4>
