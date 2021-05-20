@@ -84,7 +84,7 @@ export class HWIActorSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     // Add Inventory Item
-    html.find('.asset-create').click(this._onAssetCreate.bind(this));
+    html.find('.item-create').click(this._onItemCreate.bind(this));
 
     // // Update Inventory Item
     // html.find('.item-edit').click(ev => {
@@ -119,7 +119,7 @@ export class HWIActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onAssetCreate(event) {
+  _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
