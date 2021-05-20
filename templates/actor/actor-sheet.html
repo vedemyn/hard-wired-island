@@ -100,7 +100,7 @@
     {{!-- Specialties Tab --}}
     <div class="tab specialties" data-group="primary" data-tab="specialties">
       <ol class="specialties-list">
-        <li class="specialty flexrow item-header">
+        <li class="item flexrow item-header">
           <div class="specialty-name">Name</div>
           <div class="specialty-type">Type</div>
           <div class="specialty-value">Value</div>
@@ -110,7 +110,7 @@
           </div>
         </li>
         {{#each data.specialties as |specialty id|}}
-        <li class="specialty flexrow" data-specialty-id="{{specialty._id}}">
+        <li class="item flexrow" data-specialty-id="{{specialty._id}}">
           <h4 class="specialty-name">{{specialty.name}}</h4>
           <h4 class="specialty-type">{{specialty.data.type}}</h4>
           <h4 class="specialty-value">{{specialty.data.value}}</h4>
@@ -126,7 +126,7 @@
     {{!-- Occupation Tab --}}
     <div class="tab occupation" data-group="primary" data-tab="occupation">
       <ol class="talent-list">
-        <li class="talent flexrow talent-header">
+        <li class="item flexrow talent-header">
           <div class="talent-image"></div>
           <div class="talent-name">Name</div>
           <div class="talent-description">Description</div>
@@ -136,7 +136,7 @@
           </div>
         </li>
         {{#each data.talents as |talent id|}}
-        <li class="talent flexrow" data-talent-id="{{talent._id}}">
+        <li class="item flexrow" data-talent-id="{{talent._id}}">
           <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
           <h4 class="talent-name">{{talent.name}}</h4>          
           <h4 class="talent-description">{{talent.data.description}}</h4>
@@ -152,7 +152,7 @@
     {{!-- Assets Tab --}}
     <div class="tab assets" data-group="primary" data-tab="assets">
       <ol class="assets-list">
-        <li class="asset flexrow asset-header">
+        <li class="item flexrow asset-header">
           <div class="asset-image"></div>
           <div class="asset-name">Name</div>
           <div class="asset-cost">Cost</div>
@@ -164,7 +164,7 @@
           </div>
         </li>
         {{#each data.assets as |asset id|}}
-        <li class="asset flexrow" data-asset-id="{{asset._id}}">
+        <li class="item flexrow" data-asset-id="{{asset._id}}">
           <div class="asset-image"><img src="{{asset.img}}" title="{{asset.name}}" width="24" height="24" /></div>
           <h4 class="asset-name">{{asset.name}}</h4>
           <h4 class="asset-cost">{{asset.data.cost}}</h4>
@@ -178,7 +178,7 @@
         {{/each}}
       </ol>
       <ol class="augmentations-list">
-        <li class="augmentation flexrow asset-header">
+        <li class="item flexrow asset-header">
           <div class="augmentation-image"></div>
           <div class="augmentation-name">Name</div>
           <div class="augmentation-cost">Cost</div>
@@ -190,7 +190,7 @@
           </div>
         </li>
         {{#each data.augmentations as |augmentation id|}}
-        <li class="augmentation flexrow" data-asset-id="{{augmentation._id}}">
+        <li class="item flexrow" data-asset-id="{{augmentation._id}}">
           <div class="augmentation-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24" height="24" /></div>
           <h4 class="augmentation-name">{{augmentation.name}}</h4>
           <h4 class="augmentation-cost">{{augmentation.data.cost}}</h4>
