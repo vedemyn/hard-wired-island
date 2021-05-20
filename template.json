@@ -78,7 +78,7 @@
     },
     "asset": {
       "templates": ["base"],
-      "tags": [],
+      "tags": "",
       "cost": 0
     },
     "talent": {
@@ -87,7 +87,7 @@
     },
     "augmentation": {
       "templates": ["base"],
-      "tags": [],
+      "tags": "",
       "cost": 0
     },
     "specialty": {

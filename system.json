@@ -2,7 +2,7 @@
   "name": "hard-wired-island",
   "title": "Hard Wired Island",
   "description": "Hard Wired Island support for FoundryVTT",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -19,5 +19,5 @@
   ],
   "url": "https://github.com/vedemyn/hard-wired-island/",
   "manifest": "https://raw.githubusercontent.com/vedemyn/hard-wired-island/master/system.json",
-  "download": "https://github.com/vedemyn/hard-wired-island/archive/0.1.19.zip"
+  "download": "https://github.com/vedemyn/hard-wired-island/archive/0.1.20.zip"
 }
