@@ -219,7 +219,6 @@
 }
 
 .hardwiredisland .items-list .item {
-  height: 30px;
   line-height: 24px;
   padding: 3px 0;
   border-bottom: 1px solid #BBB;
@@ -258,4 +257,8 @@
 
 .hardwiredisland .baseinfo {
   flex: 2;
+}
+
+.hardwiredisland .item-description {
+  flex: 0 0 100%;
 }

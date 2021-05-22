@@ -131,17 +131,19 @@
               specialty</a>
           </div>
         </li>
-        {{#each data.specialties as |specialty id|}}
-        <li class="item flexrow" data-item-id="{{specialty._id}}">
-          <h4 class="specialty-name">{{specialty.name}}</h4>
-          <h4 class="specialty-type">{{specialty.data.type}}</h4>
-          <h4 class="specialty-value">{{specialty.data.value}}</h4>
-          <div class="specialty-controls">
-            <a class="specialty-control item-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
-            <a class="specialty-control item-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
+        <ul class="items-list">
+          {{#each data.specialties as |specialty id|}}
+          <li class="item flexrow" data-item-id="{{specialty._id}}">
+            <div class="specialty-name">{{specialty.name}}</div>
+            <div class="specialty-type">{{specialty.data.type}}</div>
+            <div class="specialty-value">{{specialty.data.value}}</div>
+            <div class="specialty-controls">
+              <a class="specialty-control item-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
+              <a class="specialty-control item-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
       </ol>
     </div>
 
@@ -151,88 +153,88 @@
         <li class="item flexrow talent-header">
           <div class="talent-image"></div>
           <div class="talent-name">Name</div>
-          <div class="talent-description">Description</div>
           <div class="talent-controls">
             <a class="talent-control item-create" title="Create talent" data-type="talent"><i class="fas fa-plus"></i>
               Add
               talent</a>
           </div>
         </li>
-        {{#each data.talents as |talent id|}}
-        <li class="item flexrow" data-item-id="{{talent._id}}">
-          <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
-          <h4 class="talent-name">{{talent.name}}</h4>
-          <h4 class="talent-description">{{talent.data.description}}</h4>
-          <div class="talent-controls">
-            <a class="talent-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
-            <a class="talent-control item-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
+        <ul class="items-list">
+          {{#each data.talents as |talent id|}}
+          <li class="item flexrow" data-item-id="{{talent._id}}">
+            <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
+            <div class="talent-name">{{talent.name}}</div>
+            <div class="talent-controls">
+              <a class="talent-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
+              <a class="talent-control item-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
       </ol>
     </div>
 
     {{!-- Assets Tab --}}
     <div class="tab assets" data-group="primary" data-tab="assets">
-      <ol class="assets-list">
+      <ul class="assets-list">
         <li class="item flexrow asset-header">
           <div class="asset-image"></div>
           <div class="asset-name">Name</div>
           <div class="asset-cost">Cost</div>
           <div class="asset-tags">Tags</div>
-          <div class="asset-description">Description</div>
           <div class="asset-controls">
             <a class="asset-control item-create" title="Create asset" data-type="asset"><i class="fas fa-plus"></i> Add
               asset</a>
           </div>
         </li>
-        {{#each data.assets as |asset id|}}
-        <li class="item flexrow" data-item-id="{{asset._id}}">
-          <div class="asset-image"><img src="{{asset.img}}" title="{{asset.name}}" width="24" height="24" /></div>
-          <h4 class="asset-name">{{asset.name}}</h4>
-          <h4 class="asset-cost">{{asset.data.cost}}</h4>
-          <h4 class="asset-tags">{{asset.data.tags}}</h4>
-          <h4 class="asset-description">{{asset.data.description}}</h4>
-          <div class="asset-controls">
-            <a class="asset-control item-edit" title="Edit Asset"><i class="fas fa-edit"></i></a>
-            <a class="asset-control item-delete" title="Delete Asset"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
-      </ol>
+        <ul class="items-list">
+          {{#each data.assets as |asset id|}}
+          <li class="item flexrow" data-item-id="{{asset._id}}">
+            <div class="asset-image"><img src="{{asset.img}}" title="{{asset.name}}" width="24" height="24" /></div>
+            <div class="asset-name">{{asset.name}}</div>
+            <div class="asset-cost">{{asset.data.cost}}</div>
+            <div class="asset-tags">{{asset.data.tags}}</div>
+            <div class="asset-controls">
+              <a class="asset-control item-edit" title="Edit Asset"><i class="fas fa-edit"></i></a>
+              <a class="asset-control item-delete" title="Delete Asset"><i class="fas fa-trash"></i></a>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </ul>
       <ol class="augmentations-list">
         <li class="item flexrow asset-header">
           <div class="augmentation-image"></div>
           <div class="augmentation-name">Name</div>
           <div class="augmentation-cost">Cost</div>
           <div class="augmentation-tags">Tags</div>
-          <div class="augmentation-description">Description</div>
           <div class="augmentation-controls">
             <a class="augmentation-control item-create" title="Create augmentation" data-type="augmentation"><i
                 class="fas fa-plus"></i> Add
               augmentation</a>
           </div>
         </li>
-        {{#each data.augmentations as |augmentation id|}}
-        <li class="item flexrow" data-item-id="{{augmentation._id}}">
-          <div class="augmentation-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24"
-              height="24" /></div>
-          <h4 class="augmentation-name">{{augmentation.name}}</h4>
-          <h4 class="augmentation-cost">{{augmentation.data.cost}}</h4>
-          <h4 class="augmentation-tags">{{augmentation.data.tags}}</h4>
-          <h4 class="augmentation-description">{{augmentation.data.description}}</h4>
-          <div class="augmentation-controls">
-            <a class="augmentation-control item-edit" title="Edit Augmentation"><i class="fas fa-edit"></i></a>
-            <a class="augmentation-control item-delete" title="Delete Augmentation"><i class="fas fa-trash"></i></a>
-          </div>
-        </li>
-        {{/each}}
+        <ul class="items-list">
+          {{#each data.augmentations as |augmentation id|}}
+          <li class="item flexrow" data-item-id="{{augmentation._id}}">
+            <div class="augmentation-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24"
+                height="24" /></div>
+            <div class="augmentation-name">{{augmentation.name}}</div>
+            <div class="augmentation-cost">{{augmentation.data.cost}}</div>
+            <div class="augmentation-tags">{{augmentation.data.tags}}</div>
+            <div class="augmentation-controls">
+              <a class="augmentation-control item-edit" title="Edit Augmentation"><i class="fas fa-edit"></i></a>
+              <a class="augmentation-control item-delete" title="Delete Augmentation"><i class="fas fa-trash"></i></a>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
       </ol>
     </div>
 
     {{!-- Notes Tab --}}
     <div class="tab notes" data-group="primary" data-tab="notes">
-        {{editor content=data.notes target="data.notes" button=true owner=owner editable=true}}
+      {{editor content=data.notes target="data.notes" button=true owner=owner editable=true}}
     </div>
 
   </section>

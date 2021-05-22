@@ -4,7 +4,7 @@ import { HWIActorSheet } from "./actor/actor-sheet.js";
 import { HWIItem } from "./item/item.js";
 import { HWIItemSheet } from "./item/item-sheet.js";
 
-Hooks.once('init', async function() {
+Hooks.once('init', async function () {
 
   game.hardwiredisland = {
     HWIActor,
@@ -27,12 +27,12 @@ Hooks.once('init', async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("hardwiredisland", HWIActorSheet, {types: ["character"], label: "Character Sheet", makeDefault: true });
+  Actors.registerSheet("hardwiredisland", HWIActorSheet, { types: ["character"], label: "Character Sheet", makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("hardwiredisland", HWIItemSheet, {types: ["asset", "talent", "augmentation", "specialty", "origin", "gigapp"], label: "Item Sheet", makeDefault: true });
+  Items.registerSheet("hardwiredisland", HWIItemSheet, { types: ["asset", "talent", "augmentation", "specialty", "origin", "gigapp"], label: "Item Sheet", makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function() {
+  Handlebars.registerHelper('concat', function () {
     var outStr = '';
     for (var arg in arguments) {
       if (typeof arguments[arg] != 'object') {
@@ -42,12 +42,12 @@ Hooks.once('init', async function() {
     return outStr;
   });
 
-  Handlebars.registerHelper('toLowerCase', function(str) {
+  Handlebars.registerHelper('toLowerCase', function (str) {
     return str.toLowerCase();
   });
 });
 
-Hooks.once("ready", async function() {
+Hooks.once("ready", async function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createHWIMacro(data, slot));
 });

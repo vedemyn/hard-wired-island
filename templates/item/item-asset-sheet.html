@@ -1,18 +1,18 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}"/>
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
         <div class="header-fields">
             <h1 class="typename">Asset</h1>
-            <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name"/></h1>
+            <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
-              <div class="resource">
-                <label class="resource-label">Cost</label>
-                  <input type="text" name="data.cost" value="{{data.cost}}" data-dtype="Number"/>
-              </div>
-              <div class="resource">
-                <label class="resource-label">Tags</label>
-                  <input type="text" name="data.tags" value="{{data.tags}}" data-dtype="String"/>
-              </div>
+                <div class="resource">
+                    <label class="resource-label">Cost</label>
+                    <input type="text" name="data.cost" value="{{data.cost}}" data-dtype="Number" />
+                </div>
+                <div class="resource">
+                    <label class="resource-label">Tags</label>
+                    <input type="text" name="data.tags" value="{{data.tags}}" data-dtype="String" />
+                </div>
             </div>
         </div>
     </header>

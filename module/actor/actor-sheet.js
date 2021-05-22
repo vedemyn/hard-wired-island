@@ -25,7 +25,7 @@ export class HWIActorSheet extends ActorSheet {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
 
-    if (this.actor.data.type == 'character'){
+    if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data.data);
     }
 
@@ -64,7 +64,7 @@ export class HWIActorSheet extends ActorSheet {
         specialties.push(i);
       } else if (i.type === 'occupation') {
         occupations.push(i);
-      } 
+      }
     }
 
     actorData.assets = assets;
@@ -72,6 +72,23 @@ export class HWIActorSheet extends ActorSheet {
     actorData.augmentations = augmentations;
     actorData.specialties = specialties;
     actorData.occupations = occupations;
+  }
+
+  _itemDisplayDescription(item, event) {
+    event.preventDefault();
+    let li = $(event.currentTarget),
+      itemDescription = item.data.data.description;
+
+    // Toggle summary
+    if (li.hasClass("expanded")) {
+      let descriptionElement = li.children(".item-description");
+      descriptionElement.slideUp(200, () => descriptionElement.remove());
+    } else {
+      let div = $(`<div class="item-description">${itemDescription}</div>`);
+      li.append(div.hide());
+      div.slideDown(200);
+    }
+    li.toggleClass("expanded");
   }
 
   /* -------------------------------------------- */
@@ -102,6 +119,18 @@ export class HWIActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.find('.ability-button').click(this._onRoll.bind(this));
+
+    // Toggle item details 
+    html.find(".items-list .item").click(async (ev) => {
+      const li = $(ev.currentTarget);
+      let itemId = li.data("itemId");
+      let item = this.actor.getOwnedItem(itemId);
+
+      if (!item) {
+        item = game.items.get(itemId);
+      }
+      this._itemDisplayDescription(item, ev);
+    });
 
     // // Drag events for macros.
     // if (this.actor.owner) {
