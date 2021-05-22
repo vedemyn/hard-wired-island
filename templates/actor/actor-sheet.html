@@ -6,11 +6,10 @@
       <div class=flexrow>
         <div class="baseinfo flexcol">
           <div class="flexrow">
-            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100"
-              width="100" />
+            <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" height="100" width="100" />
             <div class="info-text flexcol">
               <h2 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" data-dtype="String" />
+                <input name="name" type="text" value="{{name}}" placeholder="Name" data-dtype="String" />
               </h2>
               <h2>
                 <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle"
@@ -50,7 +49,8 @@
               <input name="origin" type="text" value="{{actor.origin}}" placeholder="Origin" data-dtype="String" />
             </h2>
             <h2 class="occupation">
-              <input name="occupation" type="text" value="{{actor.occupation}}" placeholder="Occupation" data-dtype="String" />
+              <input name="occupation" type="text" value="{{actor.occupation}}" placeholder="Occupation"
+                data-dtype="String" />
             </h2>
           </div>
         </div>
@@ -232,7 +232,7 @@
 
     {{!-- Notes Tab --}}
     <div class="tab notes" data-group="primary" data-tab="notes">
-      {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+        {{editor content=data.notes target="data.notes" button=true owner=owner editable=true}}
     </div>
 
   </section>

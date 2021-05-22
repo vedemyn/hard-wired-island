@@ -20,16 +20,16 @@ export class HWIActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
-    data.dtypes = ["String", "Number", "Boolean"];
-    for (let attr of Object.values(data.data.attributes)) {
+    data.data.dtypes = ["String", "Number", "Boolean"];
+    for (let attr of Object.values(data.data.data.attributes)) {
       attr.isCheckbox = attr.dtype === "Boolean";
     }
 
     if (this.actor.data.type == 'character'){
-      this._prepareCharacterItems(data);
+      this._prepareCharacterItems(data.data);
     }
 
-    return data;
+    return data.data;
   }
 
   /**
@@ -41,7 +41,7 @@ export class HWIActorSheet extends ActorSheet {
    */
 
   _prepareCharacterItems(sheetData) {
-    const actorData = sheetData.actor.data;
+    const actorData = sheetData.data;
     const assets = [];
     const talents = [];
     const augmentations = [];

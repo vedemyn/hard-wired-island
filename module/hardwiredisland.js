@@ -22,14 +22,14 @@ Hooks.once('init', async function() {
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = HWIActor;
-  CONFIG.Item.entityClass = HWIItem;
+  CONFIG.Actor.documentClass = HWIActor;
+  CONFIG.Item.documentClass = HWIItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("hardwiredisland", HWIActorSheet, { makeDefault: true });
+  Actors.registerSheet("hardwiredisland", HWIActorSheet, {types: ["character"], label: "Character Sheet", makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("hardwiredisland", HWIItemSheet, { makeDefault: true });
+  Items.registerSheet("hardwiredisland", HWIItemSheet, {types: ["asset", "talent", "augmentation", "specialty", "origin", "gigapp"], label: "Item Sheet", makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {
