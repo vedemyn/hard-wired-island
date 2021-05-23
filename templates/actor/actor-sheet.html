@@ -6,104 +6,145 @@
       <div class=flexrow>
         <div class="baseinfo flexcol">
           <div class="flexrow">
-            <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" height="100" width="100" />
-            <div class="info-text flexcol">
-              <h2 class="charname">
-                <input name="name" type="text" value="{{name}}" placeholder="Name" data-dtype="String" />
-              </h2>
-              <h2>
-                <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle"
-                  data-dtype="String" />
-              </h2>
-              <h2>
-                <input name="data.pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns"
-                  data-dtype="String" />
-              </h2>
+            <div class="personalia flexcol">
+              <div class="flexrow">
+                <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" height="100" width="100" />
+                <div class="info-text flexcol">
+                  <h2 class="charname">
+                    <input name="name" type="text" value="{{name}}" placeholder="Name" data-dtype="String" />
+                  </h2>
+                  <h2>
+                    <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle"
+                      data-dtype="String" />
+                  </h2>
+                  <h2>
+                    <input name="data.pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns"
+                      data-dtype="String" />
+                  </h2>
+                </div>
+              </div>
+              <div>
+                <h2 class="origin item flexrow" data-item-id="{{data.origin._id}}">
+                  <label for="data.origin.name" class="origin-label">Origin:</label>
+                  {{#if data.origin}}
+                  <input name="data.origin.name" type="text" value="{{data.origin.name}}" placeholder="Origin"
+                    data-dtype="String" readonly />
+                  <a class="origin-control item-edit" style="flex: 0.1" title="Edit Origin"><i
+                      class="fas fa-edit"></i></a>
+                  {{else}}
+                  <input class="item-create" name="data.origin.name" type="text" value="{{data.origin.name}}"
+                    placeholder="Origin" data-dtype="String" data-type="origin" />
+                  {{/if}}
+                </h2>
+                <h2 class="occupation flexrow">
+                  <label for="data.occupation" class="occupation-label">Occupation:</label>
+                  <input name="data.occupation" type="text" value="{{data.occupation}}" placeholder="Occupation"
+                    data-dtype="String" />
+                </h2>
+                <h2 class="gigapp item flexrow" data-item-id="{{data.gigapp._id}}">
+                  <label for="data.gigapp.name" class="gigapp-label">Gigapp:</label>
+                  {{#if data.gigapp}}
+                  <input name="data.gigapp.name" type="text" value="{{data.gigapp.name}}" placeholder="Gigapp"
+                    data-dtype="String" readonly />
+                  <a class="gigapp-control item-edit" style="flex: 0.1" title="Edit Origin"><i
+                      class="fas fa-edit"></i></a>
+                  {{else}}
+                  <input class="item-create" name="data.gigapp.name" type="text" value="{{data.gigapp.name}}"
+                    placeholder="Gigapp" data-dtype="String" data-type="gigapp" />
+                  {{/if}}
+                </h2>
+              </div>
+              <div class="resources flexrow">
+                <div class="resource flex-group-center">
+                  <label for="data.burden.value" class="resource-label">Burden</label>
+                  <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="data.attributes.burden.value" value="{{data.attributes.burden.value}}"
+                      data-dtype="Number" />
+                  </div>
+                </div>
+                <div class="resource flex-group-center">
+                  <label for="data.cash.value" class="resource-label">Cash</label>
+                  <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="data.attributes.cash.value" value="{{data.attributes.cash.value}}"
+                      data-dtype="Number" />
+                  </div>
+                </div>
+                <div class="resource flex-group-center">
+                  <label for="data.prep.value" class="resource-label">Prep</label>
+                  <div class="resource-content flexrow flex-center flex-between">
+                    <input type="text" name="data.attributes.prep.value" value="{{data.attributes.prep.value}}"
+                      data-dtype="Number" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="abilities flexcol">
+              {{#each data.abilities as |ability key|}}
+              <div class="ability flexrow flex-group-center">
+                <div>
+                  <label for="data.abilities.{{key}}.value" class="resource-label ability-button rollable"
+                    data-roll-attribute={{ability}} data-label="{{key}}"> {{key}}: </label>
+                  <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
+                    data-dtype="Number" />
+                </div>
+                <div>
+                  <label> Defense: </label>
+                  <input type="text" name="data.abilities.{{key}}.baseDefense" value="{{ability.baseDefense}}"
+                    data-dtype="Number" readonly />
+                </div>
+              </div>
+              {{/each}}
             </div>
           </div>
-          <div class="resources flexrow">
-            <div class="resource flex-group-center">
-              <label for="data.burden.value" class="resource-label">Burden</label>
-              <div class="resource-content flexrow flex-center flex-between">
-                <input type="text" name="data.attributes.burden.value" value="{{data.attributes.burden.value}}"
-                  data-dtype="Number" />
-              </div>
-            </div>
-            <div class="resource flex-group-center">
-              <label for="data.cash.value" class="resource-label">Cash</label>
-              <div class="resource-content flexrow flex-center flex-between">
-                <input type="text" name="data.attributes.cash.value" value="{{data.attributes.cash.value}}"
-                  data-dtype="Number" />
-              </div>
-            </div>
-            <div class="resource flex-group-center">
-              <label for="data.prep.value" class="resource-label">Prep</label>
-              <div class="resource-content flexrow flex-center flex-between">
-                <input type="text" name="data.attributes.prep.value" value="{{data.attributes.prep.value}}"
-                  data-dtype="Number" />
-              </div>
-            </div>
-          </div>
-          <div>
-            <h2 class="origin">
-              <input name="origin" type="text" value="{{actor.origin}}" placeholder="Origin" data-dtype="String" />
-            </h2>
-            <h2 class="occupation">
-              <input name="occupation" type="text" value="{{actor.occupation}}" placeholder="Occupation"
-                data-dtype="String" />
-            </h2>
+          <div class="goaldiv flexcol">
+            <input name="data.goal" type="text" value="{{data.goal}}" placeholder="Goal" data-dtype="String">
           </div>
         </div>
-
-        <div class="abilities flexcol">
-          {{#each data.abilities as |ability key|}}
-          <div class="ability flexrow flex-group-center">
+        <div class="harm-xp flexcol">
+          <div class="harm flexcol">
             <div>
-              <label for="data.abilities.{{key}}.value" class="resource-label ability-button rollable"
-                data-roll-attribute={{ability}} data-label="{{key}}"> {{key}}: </label>
-              <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
+              <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" {{checked
+                data.harm.minor.one}}>
+              <label for="harm1">Minor Injury</label>
             </div>
             <div>
-              <label> Defense: </label>
-              <input type="text" name="data.abilities.{{key}}.baseDefense" value="{{ability.baseDefense}}"
-                data-dtype="Number" readonly />
+              <input class="harmbox" type="checkbox" id="harm2" name="data.harm.minor.two" {{checked
+                data.harm.minor.two}}>
+              <label for="harm2">Minor Injury</label>
             </div>
-          </div>
-          {{/each}}
-        </div>
-
-        <div class="harm flexcol">
-          <div>
-            <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" {{checked
-              data.harm.minor.one}}>
-            <label for="harm1">Minor Injury</label>
-          </div>
-          <div>
-            <input class="harmbox" type="checkbox" id="harm2" name="data.harm.minor.two" {{checked
-              data.harm.minor.two}}>
-            <label for="harm2">Minor Injury</label>
-          </div>
-          <div>
-            <input class="harmbox" type="checkbox" id="harm3" name="data.harm.harm.one" {{checked data.harm.harm.one}}>
-            <label for="harm3">Harm (-1)</label>
-          </div>
-          <div>
-            <input class="harmbox" type="checkbox" id="harm4" name="data.harm.harm.two" {{checked data.harm.harm.two}}>
-            <label for="harm4">Harm (-1)</label>
-          </div>
-          <div>
-            <input class="harmbox" type="checkbox" id="harm5" name="data.harm.serious.one" {{checked
-              data.harm.serious.one}}>
-            <label for="harm5">Serious Injury (-1d)</label>
-          </div>
-          <div>
-            <input class="harmbox" type="checkbox" id="harm6" name="data.harm.incapacitated.one" {{checked
-              data.harm.incapacitated.one}}>
-            <label for="harm6">Incapacitated</label>
+            <div>
+              <input class="harmbox" type="checkbox" id="harm3" name="data.harm.harm.one" {{checked
+                data.harm.harm.one}}>
+              <label for="harm3">Harm (-1)</label>
+            </div>
+            <div>
+              <input class="harmbox" type="checkbox" id="harm4" name="data.harm.harm.two" {{checked
+                data.harm.harm.two}}>
+              <label for="harm4">Harm (-1)</label>
+            </div>
+            <div>
+              <input class="harmbox" type="checkbox" id="harm5" name="data.harm.serious.one" {{checked
+                data.harm.serious.one}}>
+              <label for="harm5">Serious Injury (-1d)</label>
+            </div>
+            <div>
+              <input class="harmbox" type="checkbox" id="harm6" name="data.harm.incapacitated.one" {{checked
+                data.harm.incapacitated.one}}>
+              <label for="harm6">Incapacitated</label>
+            </div>
+            <div class="flexrow">
+              <h2 class="level-experience flexcol">
+                <label for="data.level" class="level-label">Level:</label>
+                <input name="data.level" type="text" value="{{data.level}}" placeholder="1" data-dtype="Number" />
+                <label for="data.experience" class="experience-label">Experience:</label>
+                <input name="data.experience" type="text" value="{{data.experience}}" placeholder="0"
+                  data-dtype="Number" />
+              </h2>
+            </div>
           </div>
         </div>
       </div>
-      <input name="data.goal" type="text" value="{{data.goal}}" placeholder="Goal" data-dtype="String">
     </div>
   </header>
 

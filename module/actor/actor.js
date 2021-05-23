@@ -1,3 +1,5 @@
+import { HWIRoll } from "../roll/hwiRoll.js";
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -36,16 +38,30 @@ export class HWIActor extends Actor {
       <div class="form-group">
         <label>Advantage:</label>
         <input id="advantage" name="advantage" type="text" value="0" data-dtype="Number"/>
+      </div>
+      <div class="form-group">
         <label>Disdvantage:</label>
         <input id="disadvantage" name="disadvantage" type="text" value="0" data-dtype="Number"/>
+      </div>
+      <div class="form-group">
         <label>Boost:</label>
         <input id="boost" name="boost" type="text" value="0" data-dtype="Number"/>
+      </div>
+      <div class="form-group">
         <label>Specialties:</label>
         <input id="specialties" name="specialties" type="text" value="0" data-dtype="Number"/>
+      </div>
+      <div class="form-group">
         <label>Other Bonuses:</label>
         <input id="other" name="other" type="text" value="0" data-dtype="Number"/>
+      </div>
+      <div class="form-group">
         <label>Target Number:</label>
         <input id="tn" name="tn" type="text" value="0" data-dtype="Number"/>
+      </div>
+      <div class="form-group">
+        <label>Notes:</label>
+        <input id="notes" name="notes" type="text" value="" data-dtype="String"/>
       </div>
     </form>`
 
@@ -57,7 +73,6 @@ export class HWIActor extends Actor {
           icon: "<i class='fas fa-check'></i>",
           label: "Roll",
           callback: (html) => {
-
             let advAmount = parseInt(html.find('[name="advantage"]')[0].value) -
               parseInt(html.find('[name="disadvantage"]')[0].value);
 
@@ -102,9 +117,9 @@ export class HWIActor extends Actor {
 
             rollString += `+${bonus}`;
 
-            let roll = new Roll(rollString, this.data.data);
+            let roll = new HWIRoll(rollString, this.data.data, tn, "TESTFLAVOR");
             let label = ability_name ? `Rolling ${ability_name}` : '';
-            roll.roll().toMessage({
+            roll.evaluate().toMessage({
               speaker: ChatMessage.getSpeaker({ actor: this.actor }),
               flavor: label
             });

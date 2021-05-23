@@ -9,7 +9,7 @@ export class HWIActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["hardwiredisland", "sheet", "actor"],
       template: "systems/hard-wired-island/templates/actor/actor-sheet.html",
-      width: 600,
+      width: 720,
       height: 800,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "specialties" }]
     });
@@ -47,8 +47,9 @@ export class HWIActorSheet extends ActorSheet {
     const augmentations = [];
     const specialties = [];
     const occupations = [];
-    // const origin; //how to handle these....
-    // const gigapp;
+
+    let origin_item;
+    let gigapp;
 
     for (let i of sheetData.items) {
       let item = i.data;
@@ -64,7 +65,22 @@ export class HWIActorSheet extends ActorSheet {
         specialties.push(i);
       } else if (i.type === 'occupation') {
         occupations.push(i);
+      } else if (i.type === 'origin') {
+        if (origin_item) {
+          this.actor.deleteOwnedItem(origin_item._id); //highlander
+          origin_item = i;
+        } else {
+          origin_item = i; 
+        }
+      } else if (i.type === 'gigapp') {
+        if (gigapp) {
+          this.actor.deleteOwnedItem(gigapp._id); //highlander
+          gigapp = i;
+        } else {
+          gigapp = i; 
+        }
       }
+
     }
 
     actorData.assets = assets;
@@ -72,6 +88,8 @@ export class HWIActorSheet extends ActorSheet {
     actorData.augmentations = augmentations;
     actorData.specialties = specialties;
     actorData.occupations = occupations;
+    actorData.origin = origin_item;
+    actorData.gigapp = gigapp;
   }
 
   _itemDisplayDescription(item, event) {
@@ -148,7 +166,7 @@ export class HWIActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onItemCreate(event) {
+  async _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -166,8 +184,9 @@ export class HWIActorSheet extends ActorSheet {
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
 
-    // Finally, create the item!
-    return this.actor.createOwnedItem(itemData);
+
+    // Finally, create the item and render its sheet!
+    return this.actor.createOwnedItem(itemData, { renderSheet: true });
   }
 
   /**

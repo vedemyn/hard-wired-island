@@ -256,9 +256,17 @@
 }
 
 .hardwiredisland .baseinfo {
+  flex: 3.5;
+}
+
+.hardwiredisland .personalia{
   flex: 2;
 }
 
 .hardwiredisland .item-description {
   flex: 0 0 100%;
+}
+
+.hardwiredisland .goaldiv {
+  min-height: 30px;
 }
