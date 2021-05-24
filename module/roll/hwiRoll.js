@@ -4,7 +4,7 @@ export class HWIRoll extends Roll {
         this.targetnumber = args[2];
         this.critical = false;
         this.success = false;
-        this.flavortext = args[3];
+        this.notes= args[3];
     }
 
     /* -------------------------------------------- */
@@ -57,7 +57,7 @@ export class HWIRoll extends Roll {
 
         const chatData = {
             formula: isPrivate ? "???" : this._formula,
-            flavor: isPrivate ? null : this.flavortext,
+            notes: isPrivate ? null : this.notes,
             user: chatOptions.user,
             rolls: this.dice[0].results,
             total: isPrivate ? "?" : this.total,
@@ -112,7 +112,7 @@ export class HWIRoll extends Roll {
         const json = super.toJSON();
         json.targetnumber = this.targetnumber;
         json.critical = this.critical;
-        json.flavortext = this.flavorText;
+        json.notes = this.notes;
         json.success = this.success;
         return json;
     }
@@ -122,7 +122,7 @@ export class HWIRoll extends Roll {
         const roll = super.fromJSON(json);
         roll.targetnumber = json.targetnumber;
         roll.critical = json.critical;
-        roll.flavortext = json.flavorText;
+        roll.notes = json.notes;
         roll.success = json.success;
         return roll;
     }
@@ -133,7 +133,7 @@ export class HWIRoll extends Roll {
         const roll = super.fromData(data);
         roll.targetnumber = data.targetnumber;
         roll.critical = data.critical;
-        roll.flavortext = data.flavorText;
+        roll.notes = data.notes;
         roll.success = data.success;
         return roll;
     }

@@ -117,7 +117,9 @@ export class HWIActor extends Actor {
 
             rollString += `+${bonus}`;
 
-            let roll = new HWIRoll(rollString, this.data.data, tn, "TESTFLAVOR");
+            let notes = html.find('[name="notes"]')[0].value;
+
+            let roll = new HWIRoll(rollString, this.data.data, tn, notes);
             let label = ability_name ? `Rolling ${ability_name}` : '';
             roll.evaluate().toMessage({
               speaker: ChatMessage.getSpeaker({ actor: this.actor }),
