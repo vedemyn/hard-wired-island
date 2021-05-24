@@ -38,33 +38,61 @@ export class HWIRoll extends Roll {
     }
 
 
-    // /* -------------------------------------------- */
-    // /** @override */
-    // async render() {
+    /* -------------------------------------------- */
+    /** @override */
+    async render(chatOptions = {}) {
+        chatOptions = mergeObject(
+            {
+                user: game.user._id,
+                flavor: null,
+                template: "systems/hard-wired-island/templates/chat/roll-message.html",
+                blind: false,
+            },
+            chatOptions
+        );
+        const isPrivate = chatOptions.isPrivate;
 
-    // }
+        if (!this._rolled) this.evaluate();
+
+
+        const chatData = {
+            formula: isPrivate ? "???" : this._formula,
+            flavor: isPrivate ? null : this.flavortext,
+            user: chatOptions.user,
+            rolls: this.dice[0].results,
+            total: isPrivate ? "?" : this.total,
+            targetnumber: isPrivate ? "?" : this.targetnumber,
+            hasSuccess: this.success,
+            hasCritical: this.critical,
+            data: this.data,
+            publicRoll: !chatOptions.isPrivate,
+        };
+
+        return renderTemplate(chatOptions.template, chatData);
+    }
 
     /* -------------------------------------------- */
     /** @override */
-    toMessage(messageData = {}, { rollMode = null, create = true } = {}) {
+    async toMessage(messageData = {}, { rollMode = null, create = true } = {}) {
         if (!this._rolled) this.evaluate();
-        
+
         const rMode = rollMode || messageData.rollMode || game.settings.get("core", "rollMode");
 
-        let template = "systems/hard-wired-island/templates/chat/roll-message.html"
+        let template = "systems/hard-wired-island/templates/chat/roll-message.html";
         if (["gmroll", "blindroll"].includes(rMode)) {
             messageData.whisper = ChatMessage.getWhisperRecipients("GM");
         }
         if (rMode === "blindroll") messageData.blind = true;
         if (rMode === "selfroll") messageData.whisper = [game.user.id];
 
+        const result = await this.render();
 
         // Prepare chat data
         messageData = mergeObject(
             {
                 user: game.user._id,
                 type: template,
-                content: this.total,
+                content: result, 
                 sound: CONFIG.sounds.dice,
             },
             messageData

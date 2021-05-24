@@ -1,22 +1,29 @@
 <div class="dice-roll">
     <div class="dice-result">
-        <div class="dice-formula">2d6 + 0</div>
+        <div class="dice-formula">{{formula}}</div>
         <div class="dice-tooltip">
             <section class="tooltip-part">
                 <div class="dice">
                     <header class="part-header flexrow">
-                        <span class="part-formula">2d6</span>
+                        <span class="part-formula">{{this.terms}}</span>
 
-                        <span class="part-total">12</span>
+                        <span class="part-total"></span>
                     </header>
                     <ol class="dice-rolls">
-                        <li class="roll die d6 max">6</li>
-                        <li class="roll die d6 max">6</li>
+                        {{#each rolls}}
+                        {{#if this.discarded}}
+                        <li class="roll die d6 discarded">{{{this.result}}}</li>
+                        {{else}}
+                        <li class="roll die d6">{{{this.result}}}</li>
+                        {{/if}}
+                        {{/each}}
                     </ol>
                 </div>
             </section>
         </div>
 
-        <h4 class="dice-total">12</h4>
+        <h4 class="dice-total">{{total}} vs. {{targetnumber}}</h4>
+        <h4 class="roll-result">{{#if hasCritical}} Critical {{/if}} {{#if hasSuccess}} Success! {{else}} Failure.
+            {{/if}} </h4>
     </div>
 </div>
