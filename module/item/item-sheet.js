@@ -53,6 +53,13 @@ export class HWIItemSheet extends ItemSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    html.find('.specialty-create').click(ev => {
+      console.log(this.actor);
+      console.log(this.item);
+      this.item.addSpecialty();
+    });
+
+
     // Roll handlers, click handlers, etc. would go here.
   }
 }

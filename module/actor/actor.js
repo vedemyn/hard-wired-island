@@ -25,7 +25,30 @@ export class HWIActor extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
 
-    // Loop through ability scores and set their defense values based on them.
+    var specialties = {};
+    actorData.items.forEach(element => {
+      for (const elem of element.data.data.specialties) {
+        const key = elem.key;
+        const value = elem.value;
+        if (specialties[key]) {
+          specialties[key].value += value;
+        } else {
+          specialties[key] = { key, value };
+        }
+      }
+    });
+
+    for (const key in data.nonItemSpecialties) {
+      const value = data.nonItemSpecialties[key].value;
+      if (specialties[key]) {
+        specialties[key].value += value;
+      } else {
+        specialties[key] = { key, value };
+      }
+    }
+
+    data.specialties = specialties;
+
     for (let [key, ability] of Object.entries(data.abilities)) {
       ability.baseDefense = ability.value + 7;
     }

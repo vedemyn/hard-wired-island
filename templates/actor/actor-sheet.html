@@ -10,14 +10,17 @@
               <div class="flexrow">
                 <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" height="100" width="100" />
                 <div class="info-text flexcol">
-                  <h2 class="charname">
+                  <h2 class="charname flexrow">
+                    <label for="name" class="name-label">Name:</label>
                     <input name="name" type="text" value="{{name}}" placeholder="Name" data-dtype="String" />
                   </h2>
-                  <h2>
+                  <h2 class="flexrow">
+                    <label for="data.handle" class="handle-label">Handle:</label>
                     <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle"
                       data-dtype="String" />
                   </h2>
-                  <h2>
+                  <h2 class="flexrow">
+                    <label for="data.pronouns" class="pronouns-label">Pronouns:</label>
                     <input name="data.pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns"
                       data-dtype="String" />
                   </h2>
@@ -98,11 +101,13 @@
             </div>
           </div>
           <div class="goaldiv flexcol">
+            <label for="data.goal" class="goal-label">Goal:</label>
             <input name="data.goal" type="text" value="{{data.goal}}" placeholder="Goal" data-dtype="String">
           </div>
         </div>
         <div class="harm-xp flexcol">
           <div class="harm flexcol">
+            <label class="harm-label">Harm:</label>
             <div>
               <input class="harmbox" type="checkbox" id="harm1" name="data.harm.minor.one" {{checked
                 data.harm.minor.one}}>
@@ -164,7 +169,6 @@
       <ol class="specialties-list">
         <li class="item flexrow item-header">
           <div class="specialty-name">Name</div>
-          <div class="specialty-type">Type</div>
           <div class="specialty-value">Value</div>
           <div class="specialty-controls">
             <a class="specialty-control item-create" title="Create Specialty" data-type="specialty"><i
@@ -175,9 +179,8 @@
         <ul class="items-list">
           {{#each data.specialties as |specialty id|}}
           <li class="item flexrow" data-item-id="{{specialty._id}}">
-            <div class="specialty-name">{{specialty.name}}</div>
-            <div class="specialty-type">{{specialty.data.type}}</div>
-            <div class="specialty-value">{{specialty.data.value}}</div>
+            <div class="specialty-name">{{specialty.key}}</div>
+            <div class="specialty-value">{{specialty.value}}</div>
             <div class="specialty-controls">
               <a class="specialty-control item-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
               <a class="specialty-control item-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>

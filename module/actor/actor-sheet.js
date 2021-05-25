@@ -45,7 +45,6 @@ export class HWIActorSheet extends ActorSheet {
     const assets = [];
     const talents = [];
     const augmentations = [];
-    const specialties = [];
     const occupations = [];
 
     let origin_item;
@@ -61,8 +60,6 @@ export class HWIActorSheet extends ActorSheet {
         talents.push(i);
       } else if (i.type === 'augmentation') {
         augmentations.push(i);
-      } else if (i.type === 'specialty') {
-        specialties.push(i);
       } else if (i.type === 'occupation') {
         occupations.push(i);
       } else if (i.type === 'origin') {
@@ -86,7 +83,6 @@ export class HWIActorSheet extends ActorSheet {
     actorData.assets = assets;
     actorData.talents = talents;
     actorData.augmentations = augmentations;
-    actorData.specialties = specialties;
     actorData.occupations = occupations;
     actorData.origin = origin_item;
     actorData.gigapp = gigapp;
@@ -124,14 +120,14 @@ export class HWIActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
+      this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
       li.slideUp(200, () => this.render(false));
     });
 
@@ -142,7 +138,7 @@ export class HWIActorSheet extends ActorSheet {
     html.find(".items-list .item").click(async (ev) => {
       const li = $(ev.currentTarget);
       let itemId = li.data("itemId");
-      let item = this.actor.getOwnedItem(itemId);
+      let item = this.actor.items.get(itemId);
 
       if (!item) {
         item = game.items.get(itemId);
@@ -186,7 +182,7 @@ export class HWIActorSheet extends ActorSheet {
 
 
     // Finally, create the item and render its sheet!
-    return this.actor.createOwnedItem(itemData, { renderSheet: true });
+    return this.actor.createEmbeddedDocuments("Item", [itemData], { renderSheet: true });
   }
 
   /**

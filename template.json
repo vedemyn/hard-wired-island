@@ -1,6 +1,8 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": [
+      "character"
+    ],
     "templates": {},
     "character": {
       "templates": [],
@@ -35,7 +37,8 @@
       "experience": "",
       "origin": {},
       "occupation": "",
-      "specialties": [],
+      "specialties": {},
+      "nonItemSpecialties": {},
       "talents": [],
       "assets": [],
       "augmentations": [],
@@ -61,37 +64,49 @@
     }
   },
   "Item": {
-    "types": ["asset", "talent", "augmentation", "specialty", "origin", "gigapp"],
+    "types": [
+      "asset",
+      "talent",
+      "augmentation",
+      "origin",
+      "gigapp"
+    ],
     "templates": {
       "base": {
         "description": ""
       }
     },
     "asset": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "tags": "",
       "cost": 0
     },
     "talent": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "occupation": ""
     },
     "augmentation": {
-      "templates": ["base"],
+      "templates": [
+        "base"
+      ],
       "tags": "",
-      "cost": 0
-    },
-    "specialty": {
-      "templates": ["base"],
-      "type": "",
-      "value": 0
-    },
-    "origin": {
-      "templates": ["base"],
+      "cost": 0,
       "specialties": []
     },
+    "origin": {
+      "templates": [
+        "base"
+      ],
+      "specialties": [] 
+    },
     "gigapp": {
-      "templates": ["base"]
+      "templates": [
+        "base"
+      ]
     }
   }
 }
