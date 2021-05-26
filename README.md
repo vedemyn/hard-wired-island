@@ -17,8 +17,9 @@ At some point it will also hopefully be released as a package for foundry, enabl
 
 ## TODO
 - CSS for everything basically.
-- Initiative popup.
 - Automation of some things such as saves, applying specialties etc. Currently you have to enter things by hand that could be pre-filled on clicking the right things. 
 - Possibly pre-filling some of the origins, assets and other things. This depends on permission by the RPG creators and me figuring out what Foundry wants for legal stuff. 
 - NPC sheets
 - Instead of just having everything be in english by default and calling that "English Localization" maybe add actual entries to the english localization :)
+- Cleanup of unnecessary code leftover from the templates etc.
+- Enable displaying the GigApp and Origin description on the sheet without going in to edit them

@@ -137,39 +137,9 @@ export class HWIActor extends Actor {
     });
   }
 
-  rollAbilityPopup(ability_name) {
-    var content = `
-    <h2>Roll ${ability_name}</h2>
-    <form>
-      <div class="form-group">
-        <label>Advantage:</label>
-        <input id="advantage" name="advantage" type="text" value="0" data-dtype="Number"/>
-      </div>
-      <div class="form-group">
-        <label>Disdvantage:</label>
-        <input id="disadvantage" name="disadvantage" type="text" value="0" data-dtype="Number"/>
-      </div>
-      <div class="form-group">
-        <label>Boost:</label>
-        <input id="boost" name="boost" type="text" value="0" data-dtype="Number"/>
-      </div>
-      <div class="form-group">
-        <label>Specialties:</label>
-        <input id="specialties" name="specialties" type="text" value="0" data-dtype="Number"/>
-      </div>
-      <div class="form-group">
-        <label>Other Bonuses:</label>
-        <input id="other" name="other" type="text" value="0" data-dtype="Number"/>
-      </div>
-      <div class="form-group">
-        <label>Target Number:</label>
-        <input id="tn" name="tn" type="text" value="0" data-dtype="Number"/>
-      </div>
-      <div class="form-group">
-        <label>Notes:</label>
-        <input id="notes" name="notes" type="text" value="" data-dtype="String"/>
-      </div>
-    </form>`
+  async rollAbilityPopup(ability_name) {
+    var content = await renderTemplate("systems/hard-wired-island/templates/roll/roll-popup.html", {});
+
 
     let d = new Dialog({
       title: `Roll ${ability_name}`,

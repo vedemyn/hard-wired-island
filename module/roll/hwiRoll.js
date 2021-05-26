@@ -73,19 +73,22 @@ export class HWIRoll extends Roll {
 
     /* -------------------------------------------- */
     /** @override */
-    async toMessage(messageData = {}, { rollMode = null, create = true } = {}) {
+    async toMessage(messageData = {}, { rollMode = null, create = true, rollType = "standard" } = {}) {
         if (!this._rolled) this.evaluate();
 
         const rMode = rollMode || messageData.rollMode || game.settings.get("core", "rollMode");
 
         let template = "systems/hard-wired-island/templates/chat/roll-message.html";
+        if (rollType === "initiative") {
+            template = "systems/hard-wired-island/templates/chat/initiative-message.html";
+        }
         if (["gmroll", "blindroll"].includes(rMode)) {
             messageData.whisper = ChatMessage.getWhisperRecipients("GM");
         }
         if (rMode === "blindroll") messageData.blind = true;
         if (rMode === "selfroll") messageData.whisper = [game.user.id];
 
-        const result = await this.render();
+        const result = await this.render({template: template});
 
         // Prepare chat data
         messageData = mergeObject(
@@ -102,7 +105,7 @@ export class HWIRoll extends Roll {
         // Prepare message options
         const messageOptions = { rollMode: rMode };
         // Either create the message or just return the chat data
-        return create ? CONFIG.ChatMessage.entityClass.create(messageData, messageOptions) : messageData;
+        return create ? await CONFIG.ChatMessage.entityClass.create(messageData, messageOptions) : messageData;
     }
 
 

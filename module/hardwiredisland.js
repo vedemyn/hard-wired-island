@@ -3,6 +3,7 @@ import { HWIActor } from "./actor/actor.js";
 import { HWIActorSheet } from "./actor/actor-sheet.js";
 import { HWIItem } from "./item/item.js";
 import { HWIItemSheet } from "./item/item-sheet.js";
+import { HWICombat } from "./combat.js";
 
 Hooks.once('init', async function () {
 
@@ -24,6 +25,7 @@ Hooks.once('init', async function () {
   // Define custom Entity classes
   CONFIG.Actor.documentClass = HWIActor;
   CONFIG.Item.documentClass = HWIItem;
+  CONFIG.Combat.documentClass = HWICombat;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
