@@ -88,7 +88,7 @@ export class HWIActor extends Actor {
       if (newValue <= 0) {
         this.deleteSpecialty(name);
       } else {
-        return await this.update({[`data.nonItemSpecialties.${name}.value`]: newValue});
+        return await this.update({ [`data.nonItemSpecialties.${name}.value`]: newValue });
       }
 
     }
@@ -99,6 +99,42 @@ export class HWIActor extends Actor {
         ui.notifications.error("Specialty at least partially provided by an Item, please modify the specialty in the Item instead.");
       }
     }
+  }
+
+  async renameSpecialty(oldname, newname) {
+    const nonItemSpecialties = this.data.data.nonItemSpecialties;
+    const allSpecialties = this.data.data.specialties;
+
+    if (oldname in nonItemSpecialties) {
+      const value = nonItemSpecialties[oldname].value;
+      this.deleteSpecialty(oldname);
+      this.addSpecialty(newname, value);
+      if (oldname in allSpecialties) {
+        this.renameItemSpecialties(oldname, newname);
+      }
+    } else {
+      if (oldname in allSpecialties) {
+        this.renameItemSpecialties(oldname, newname);
+      } else {
+        ui.notifications.error("wtf how");
+      }
+    }
+  }
+
+  async renameItemSpecialties(oldname, newname) {
+    const itemsWithSpecialty = this.items.filter(entry => 'specialties' in entry.data.data).filter(entry => {
+      for (const key in entry.data.data.specialties) {
+        if (Object.hasOwnProperty.call(entry.data.data.specialties, key)) {
+          const element = entry.data.data.specialties[key];
+          if (element.key === oldname) { return true; }
+        }
+      }
+      return false;
+    });
+
+    itemsWithSpecialty.forEach(element => {
+      element.renameSpecialty(oldname, newname);
+    });
   }
 
   rollAbilityPopup(ability_name) {

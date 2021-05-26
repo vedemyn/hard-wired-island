@@ -36,6 +36,19 @@ export class HWIItem extends Item {
     return await this.update({ 'data.specialties': specs , [`data.specialties.-=${last}`]: null});
   }
 
+  async renameSpecialty(oldname, newname) {
+    var specs = this.data.data.specialties;
+    for (const key in specs) {
+      if (Object.hasOwnProperty.call(specs, key)) {
+        const element = specs[key];
+        if (element.key === oldname) {
+          element.key = newname;
+        }
+      }
+    }
+    return await this.update({ 'data.specialties': specs });
+  }
+
   // /*
   //  * Handle clickable rolls.
   //  * @param {Event} event   The originating click event

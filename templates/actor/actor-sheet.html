@@ -179,7 +179,12 @@
         <ul class="items-list">
           {{#each data.specialties as |specialty id|}}
           <li class="specialty flexrow" data-specialty-name="{{specialty.key}}">
-            <div class="specialty-name">{{specialty.key}}<i class="fas fa-check"></i></div>
+            <div class="specialty-name">
+              <label>{{specialty.key}}</label>
+              <a class="specialty-control specialty-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
+              <input class="rename-field" type="text" value="{{specialty.key}}" data-dtype="Text" style="display: none;" />
+              <a class="specialty-control specialty-rename" title="Rename Specialty" style="display: none;"><i class="fas fa-check"></i></a>
+            </div>
             <div class="specialty-value">
               <a class="specialty-control specialty-decrease" title="Increase Specialty"><i
                   class="fas fa-minus"></i></a>

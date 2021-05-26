@@ -172,6 +172,19 @@ export class HWIActorSheet extends ActorSheet {
         console.log('increased specialty', result);
       });
     });
+
+    html.find('.specialty-edit').click(ev => {
+      $(ev.currentTarget).siblings().toggle();
+      $(ev.currentTarget).toggle();
+    });
+
+    html.find('.specialty-rename').click(ev => {
+      const oldname = $(ev.currentTarget).parents(".specialty").data("specialtyName");
+      const newname = $(ev.currentTarget).siblings(".rename-field")[0].value;
+      this.actor.renameSpecialty(oldname, newname);
+      $(ev.currentTarget).siblings().toggle();
+      $(ev.currentTarget).toggle();
+    });
     // // Drag events for macros.
     // if (this.actor.owner) {
     //   let handler = ev => this._onDragStart(ev);
