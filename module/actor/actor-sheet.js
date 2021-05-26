@@ -67,14 +67,14 @@ export class HWIActorSheet extends ActorSheet {
           this.actor.deleteOwnedItem(origin_item._id); //highlander
           origin_item = i;
         } else {
-          origin_item = i; 
+          origin_item = i;
         }
       } else if (i.type === 'gigapp') {
         if (gigapp) {
           this.actor.deleteOwnedItem(gigapp._id); //highlander
           gigapp = i;
         } else {
-          gigapp = i; 
+          gigapp = i;
         }
       }
 
@@ -146,6 +146,32 @@ export class HWIActorSheet extends ActorSheet {
       this._itemDisplayDescription(item, ev);
     });
 
+    html.find('.specialty-create').click(ev => {
+      this.actor.addSpecialty("Name", 1).then(function (result) {
+        console.log('Added', result);
+      });
+    });
+
+    html.find('.specialty-delete').click(ev => {
+      const li = $(ev.currentTarget).parents(".specialty");
+      this.actor.deleteSpecialty(li.data("specialtyName")).then(function (result) {
+        console.log('Deleted', result);
+      });
+    });
+
+    html.find('.specialty-decrease').click(ev => {
+      const li = $(ev.currentTarget).parents(".specialty");
+      this.actor.modifySpecialty(li.data("specialtyName"), -1).then(function (result) {
+        console.log('decreased specialty', result);
+      });
+    });
+
+    html.find('.specialty-increase').click(ev => {
+      const li = $(ev.currentTarget).parents(".specialty");
+      this.actor.modifySpecialty(li.data("specialtyName"), 1).then(function (result) {
+        console.log('increased specialty', result);
+      });
+    });
     // // Drag events for macros.
     // if (this.actor.owner) {
     //   let handler = ev => this._onDragStart(ev);

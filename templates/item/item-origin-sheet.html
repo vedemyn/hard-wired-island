@@ -1,16 +1,16 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}"/>
+        <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" />
         <div class="header-fields">
             <h1 class="typename">Origin</h1>
-            <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name"/></h1>
+            <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="Name" /></h1>
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="attributes">Specialties</a>
+        <a class="item" data-tab="specialties">Specialties</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -23,7 +23,19 @@
 
         {{!-- Specialties Tab --}}
         <div class="tab specialties" data-group="primary" data-tab="specialties">
-            {{!-- As you add new fields, add them in here! --}}
+            <a class="specialty-control specialty-create" title="Create Specialty" data-type="specialty"><i
+                    class="fas fa-plus"></i> Add
+                specialty</a>
+            {{#each data.specialties as |specialty key|}}
+            <li class="specialty flexrow" data-specialty-index="{{key}}">
+                <label for="data.specialties.{{key}}.key">Name:</label>
+                <input type="text" name="data.specialties.{{key}}.key" value="{{specialty.key}}" data-dtype="String" />
+                <label for="data.specialties.{{key}}.value">Value:</label>
+                <input type="text" name="data.specialties.{{key}}.value" value="{{specialty.value}}"
+                    data-dtype="Number" />
+                <a class="specialty-control specialty-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
+            </li>
+            {{/each}}
         </div>
     </section>
 </form>

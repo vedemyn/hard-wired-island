@@ -25,15 +25,15 @@ export class HWIActor extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
 
+    //this works, no touch
     var specialties = {};
     actorData.items.forEach(element => {
-      for (const elem of element.data.data.specialties) {
-        const key = elem.key;
-        const value = elem.value;
-        if (specialties[key]) {
-          specialties[key].value += value;
+      for (const key in element.data.data.specialties) {
+        const specialty = element.data.data.specialties[key];
+        if (specialties[specialty.key]) {
+          specialties[specialty.key].value += specialty.value;
         } else {
-          specialties[key] = { key, value };
+          specialties[specialty.key] = { key: specialty.key, value: specialty.value };
         }
       }
     });
@@ -51,6 +51,53 @@ export class HWIActor extends Actor {
 
     for (let [key, ability] of Object.entries(data.abilities)) {
       ability.baseDefense = ability.value + 7;
+    }
+  }
+
+  async addSpecialty(name, amount) {
+    const specs = this.data.data.nonItemSpecialties;
+    let newKey = name;
+    for (let index = 1; index < 1000; index++) { //1000 just so it cant be infinite loop
+      if (!(newKey in this.data.data.nonItemSpecialties)) {
+        specs[newKey] = { key: newKey, value: amount };
+        break;
+      } else {
+        newKey = `${name} (${index})`;
+      }
+    }
+
+    return await this.update({ 'data.nonItemSpecialties': specs });
+  }
+
+  async deleteSpecialty(name) {
+    const specs = this.data.data.nonItemSpecialties;
+    if (name in specs) {
+      const key = `data.nonItemSpecialties.-=${name}`;
+      return await this.update({ [key]: null });
+    }
+    else {
+      ui.notifications.error("Specialty provided by an Item, please delete the Item instead.");
+    }
+  }
+
+  async modifySpecialty(name, amount) {
+    const nonItemSpecialties = this.data.data.nonItemSpecialties;
+    if (name in nonItemSpecialties) {
+
+      let newValue = nonItemSpecialties[name].value + amount;
+      if (newValue <= 0) {
+        this.deleteSpecialty(name);
+      } else {
+        return await this.update({[`data.nonItemSpecialties.${name}.value`]: newValue});
+      }
+
+    }
+    else {
+      if (amount > 0) {
+        this.addSpecialty(name, amount);
+      } else {
+        ui.notifications.error("Specialty at least partially provided by an Item, please modify the specialty in the Item instead.");
+      }
     }
   }
 

@@ -54,11 +54,13 @@ export class HWIItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     html.find('.specialty-create').click(ev => {
-      console.log(this.actor);
-      console.log(this.item);
       this.item.addSpecialty();
     });
 
+    html.find('.specialty-delete').click(ev => {
+      const li = $(ev.currentTarget).parents(".specialty");
+      this.item.deleteSpecialty(li.data("specialtyIndex"));
+    });
 
     // Roll handlers, click handlers, etc. would go here.
   }

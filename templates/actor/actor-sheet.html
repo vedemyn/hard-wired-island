@@ -171,19 +171,23 @@
           <div class="specialty-name">Name</div>
           <div class="specialty-value">Value</div>
           <div class="specialty-controls">
-            <a class="specialty-control item-create" title="Create Specialty" data-type="specialty"><i
+            <a class="specialty-control specialty-create" title="Create Specialty" data-type="specialty"><i
                 class="fas fa-plus"></i> Add
               specialty</a>
           </div>
         </li>
         <ul class="items-list">
           {{#each data.specialties as |specialty id|}}
-          <li class="item flexrow" data-item-id="{{specialty._id}}">
-            <div class="specialty-name">{{specialty.key}}</div>
-            <div class="specialty-value">{{specialty.value}}</div>
+          <li class="specialty flexrow" data-specialty-name="{{specialty.key}}">
+            <div class="specialty-name">{{specialty.key}}<i class="fas fa-check"></i></div>
+            <div class="specialty-value">
+              <a class="specialty-control specialty-decrease" title="Increase Specialty"><i
+                  class="fas fa-minus"></i></a>
+              {{specialty.value}}
+              <a class="specialty-control specialty-increase" title="Increase Specialty"><i class="fas fa-plus"></i></a>
+            </div>
             <div class="specialty-controls">
-              <a class="specialty-control item-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
-              <a class="specialty-control item-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
+              <a class="specialty-control specialty-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
             </div>
           </li>
           {{/each}}

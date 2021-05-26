@@ -36,13 +36,15 @@
             <a class="specialty-control specialty-create" title="Create Specialty" data-type="specialty"><i
                     class="fas fa-plus"></i> Add
                 specialty</a>
-            {{#each data.specialties as |specialty|}}
-            <div class="flexrow">
-                <label for="specialty.key">Name:</label>
-                <input type="text" name="specialty.key" value="{{specialty.key}}" data-dtype="String" />
-                <label for="specialty.value">Value:</label>
-                <input type="text" name="specialty.value" value="{{specialty.value}}" data-dtype="Number" />
-            </div>
+            {{#each data.specialties as |specialty key|}}
+            <li class="specialty flexrow" data-specialty-index="{{key}}">
+                <label for="data.specialties.{{key}}.key">Name:</label>
+                <input type="text" name="data.specialties.{{key}}.key" value="{{specialty.key}}" data-dtype="String" />
+                <label for="data.specialties.{{key}}.value">Value:</label>
+                <input type="text" name="data.specialties.{{key}}.value" value="{{specialty.value}}"
+                    data-dtype="Number" />
+                <a class="specialty-control specialty-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
+            </li>
             {{/each}}
         </div>
     </section>

@@ -95,13 +95,13 @@
       ],
       "tags": "",
       "cost": 0,
-      "specialties": []
+      "specialties": {}
     },
     "origin": {
       "templates": [
         "base"
       ],
-      "specialties": [] 
+      "specialties": {}
     },
     "gigapp": {
       "templates": [

@@ -10,16 +10,30 @@ export class HWIItem extends Item {
     super.prepareData();
 
     // Get the Item's data
-    const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
+    // const itemData = this.data;
+    // const actorData = this.actor ? this.actor.data : {};
+    // const data = itemData.data;
   }
 
 
-  addSpecialty() {
-    const itemData = this.data.data;
-    setProperty(itemData, "specialties.0", {"key": "name", "value": 1});
-    itemData.specialties.push({"key": "name", "value": 1});
+  async addSpecialty() {
+    var specs = this.data.data.specialties;
+    let newIndex = Object.keys(specs).length;
+
+    specs[newIndex] = { key: "Name", value: 1 };
+
+    return await this.update({ 'data.specialties': specs });
+  }
+
+  async deleteSpecialty(deletionIndex) {
+    var specs = this.data.data.specialties;
+    let last = Object.keys(specs).length - 1;
+    for (let index = 0; index < last; index++) {
+      if (index >= deletionIndex) {
+        specs[index] = specs[index+1];
+      }
+    }
+    return await this.update({ 'data.specialties': specs , [`data.specialties.-=${last}`]: null});
   }
 
   // /*
