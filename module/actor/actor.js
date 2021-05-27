@@ -102,6 +102,8 @@ export class HWIActor extends Actor {
   }
 
   async renameSpecialty(oldname, newname) {
+    if (oldname === newname) return;
+
     const nonItemSpecialties = this.data.data.nonItemSpecialties;
     const allSpecialties = this.data.data.specialties;
 

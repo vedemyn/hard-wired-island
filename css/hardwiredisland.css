@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
 /* Global styles */
-.window-app {
-  font-family: "Roboto", sans-serif;
+
+.window-app .window-content {
+  background: #fff;
 }
 
 .rollable:hover, .rollable:focus {
@@ -121,8 +122,8 @@
 
 .hardwiredisland .sheet-header {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 320px;
-  flex: 0 0 320px;
+  -ms-flex: 0 0 300px;
+  flex: 0 0 300px;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,7 +137,7 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  margin-bottom: 10px;
+  color: #006B86;
 }
 
 .hardwiredisland .sheet-header .profile-img {
@@ -166,6 +167,10 @@
   margin: 0;
 }
 
+.hardwiredisland .sheet-header input {
+  color: #006B86;
+}
+
 .hardwiredisland .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
@@ -186,25 +191,35 @@
   padding: 0 8px;
 }
 
+.hardwiredisland .resource {
+  border: none;
+  padding: 0;
+}
+
 .hardwiredisland .resource-label {
   font-weight: bold;
   text-transform: uppercase;
 }
 
+.hardwiredisland .resource-content {
+  padding: 0 5px 0 5px;
+}
+
 .hardwiredisland .tabs {
   height: 40px;
-  border-top: 1px solid #AAA;
-  border-bottom: 1px solid #AAA;
+  color: #fff;
+  background: #AF79AC;
 }
 
 .hardwiredisland .tabs .item {
-  line-height: 40px;
+  line-height: 30px;
   font-weight: bold;
 }
 
 .hardwiredisland .tabs .item.active {
   text-decoration: underline;
   text-shadow: none;
+  background: #7D2477;
 }
 
 .hardwiredisland .items-list {
@@ -214,19 +229,24 @@
   overflow-y: auto;
 }
 
-.hardwiredisland .items-list .item-header {
-  font-weight: bold;
-  background: #AF79AC;
+.hardwiredisland ul.items-list {
+  margin-bottom: 10px;
 }
 
-.hardwiredisland .items-list .specialty-header {
+.hardwiredisland .items-list .item-header, .specialty-header {
   font-weight: bold;
-  background: #006B86;
+  color: #fff;
+  padding: 3px 3px;
+}
+
+.hardwiredisland .items-list .item-header {
+  background: #AF79AC;
 }
 
 .hardwiredisland .items-list .item {
   line-height: 24px;
-  padding: 3px 0;
+  padding: 3px 3px;
+  color: #AF79AC;
 }
 
 .hardwiredisland .items-list .item:nth-child(odd) {
@@ -262,9 +282,16 @@
 
 .hardwiredisland .items-list .item-controls {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 86px;
-  flex: 0 0 86px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
   text-align: right;
+}
+
+.hardwiredisland .items-list .item-cost {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50px;
+  flex: 0 0 50px;
+
 }
 
 .hardwiredisland .harm {
@@ -278,10 +305,12 @@
 
 .hardwiredisland .baseinfo {
   flex: 3;
+  padding: 5px;
 }
 
 .hardwiredisland .personalia{
   flex: 2.5;
+  padding: 5px;
 }
 
 .hardwiredisland .item-description {
@@ -290,4 +319,43 @@
 
 .hardwiredisland .goaldiv {
   min-height: 50px;
+  padding: 5px;
+}
+
+.hardwiredisland h2 {
+  border-bottom: none;
+}
+
+.hardwiredisland input[type="text"] {
+  border-radius: 0;
+}
+
+.personalia-label { 
+  font-size: 0.6em;
+  flex: 0.3;
+}
+
+.goal-label {
+  flex: 0 0 40px;
+}
+
+.origin-field {
+  padding-right: 27px;
+}
+
+.origin-control {
+  margin-left: -27px;
+}
+
+.abilities, .ability {
+  border: none;
+}
+
+.xp-label {
+  font-size: 0.6em;
+  flex: 0.3;
+}
+
+.level-experience {
+  flex: 0.5;
 }

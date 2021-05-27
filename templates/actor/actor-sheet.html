@@ -10,17 +10,17 @@
               <div class="flexrow">
                 <img class="profile-img" src="{{img}}" data-edit="img" title="{{name}}" height="100" width="100" />
                 <div class="info-text flexcol">
-                  <h2 class="charname flexrow">
-                    <label for="name" class="name-label">Name:</label>
+                  <h2 class="flexrow">
+                    <label for="name" class="personalia-label">Name:</label>
                     <input name="name" type="text" value="{{name}}" placeholder="Name" data-dtype="String" />
                   </h2>
                   <h2 class="flexrow">
-                    <label for="data.handle" class="handle-label">Handle:</label>
+                    <label for="data.handle" class="personalia-label">Handle:</label>
                     <input name="data.handle" type="text" value="{{data.handle}}" placeholder="Handle"
                       data-dtype="String" />
                   </h2>
                   <h2 class="flexrow">
-                    <label for="data.pronouns" class="pronouns-label">Pronouns:</label>
+                    <label for="data.pronouns" class="personalia-label">Pronouns:</label>
                     <input name="data.pronouns" type="text" value="{{data.pronouns}}" placeholder="Pronouns"
                       data-dtype="String" />
                   </h2>
@@ -28,10 +28,10 @@
               </div>
               <div>
                 <h2 class="origin item flexrow" data-item-id="{{data.origin._id}}">
-                  <label for="data.origin.name" class="origin-label">Origin:</label>
+                  <label for="data.origin.name" class="personalia-label">Origin:</label>
                   {{#if data.origin}}
-                  <input name="data.origin.name" type="text" value="{{data.origin.name}}" placeholder="Origin"
-                    data-dtype="String" readonly />
+                  <input class="origin-field" name="data.origin.name" type="text" value="{{data.origin.name}}"
+                    placeholder="Origin" data-dtype="String" readonly />
                   <a class="origin-control item-edit" style="flex: 0.1" title="Edit Origin"><i
                       class="fas fa-edit"></i></a>
                   {{else}}
@@ -40,7 +40,7 @@
                   {{/if}}
                 </h2>
                 <h2 class="occupation flexrow">
-                  <label for="data.occupation" class="occupation-label">Occupation:</label>
+                  <label for="data.occupation" class="personalia-label">Occupation:</label>
                   <input name="data.occupation" type="text" value="{{data.occupation}}" placeholder="Occupation"
                     data-dtype="String" />
                 </h2>
@@ -88,7 +88,7 @@
               {{/each}}
             </div>
           </div>
-          <div class="goaldiv flexcol">
+          <div class="goaldiv flexrow">
             <label for="data.goal" class="goal-label">Goal:</label>
             <input name="data.goal" type="text" value="{{data.goal}}" placeholder="Goal" data-dtype="String">
           </div>
@@ -126,15 +126,19 @@
                 data.harm.incapacitated.one}}>
               <label for="harm6">Incapacitated</label>
             </div>
-            <div class="flexrow">
-              <h2 class="level-experience flexcol">
-                <label for="data.level" class="level-label">Level:</label>
+          </div>
+          <div class="level-experience flexrow">
+            <h2 class="flexrow">
+              <div>
+                <label for="data.level" class="xp-label">Level:</label>
                 <input name="data.level" type="text" value="{{data.level}}" placeholder="1" data-dtype="Number" />
-                <label for="data.experience" class="experience-label">Experience:</label>
+              </div>
+              <div>
+                <label for="data.experience" class="xp-label">Experience:</label>
                 <input name="data.experience" type="text" value="{{data.experience}}" placeholder="0"
                   data-dtype="Number" />
-              </h2>
-            </div>
+              </div>
+            </h2>
           </div>
         </div>
       </div>
@@ -204,7 +208,7 @@
     {{!-- Specialties Tab --}}
     <div class="tab specialties" data-group="primary" data-tab="specialties">
       <ol class="items-list">
-        <li class="flexrow specialty-header">
+        <li class="flexrow item-header">
           <div class="item-name">Name</div>
           <div class="item-value">Value</div>
           <div class="item-controls">
@@ -214,7 +218,7 @@
         </li>
         <ul class="items-list">
           {{#each data.specialties as |specialty id|}}
-          <li class="specialty flexrow" data-specialty-name="{{specialty.key}}">
+          <li class="item flexrow" data-specialty-name="{{specialty.key}}">
             <div class="item-name">
               <label>{{specialty.key}}</label>
               <a class="item-control specialty-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
