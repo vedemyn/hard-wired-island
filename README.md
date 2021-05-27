@@ -16,6 +16,7 @@ Simply go to the "Game Systems" tab, click the "Install System" button, paste th
 At some point it will also hopefully be released as a package for foundry, enabling you to simply select it from a menu. 
 
 ## TODO
+- OH NO I FORGOT TRAITS
 - CSS for everything basically.
 - Automation of some things such as saves, applying specialties etc. Currently you have to enter things by hand that could be pre-filled on clicking the right things. 
 - Possibly pre-filling some of the origins, assets and other things. This depends on permission by the RPG creators and me figuring out what Foundry wants for legal stuff. 
