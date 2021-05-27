@@ -166,33 +166,34 @@
 
     {{!-- Specialties Tab --}}
     <div class="tab specialties" data-group="primary" data-tab="specialties">
-      <ol class="specialties-list">
-        <li class="item flexrow item-header">
-          <div class="specialty-name">Name</div>
-          <div class="specialty-value">Value</div>
-          <div class="specialty-controls">
-            <a class="specialty-control specialty-create" title="Create Specialty" data-type="specialty"><i
-                class="fas fa-plus"></i> Add
-              specialty</a>
+      <ol class="items-list">
+        <li class="flexrow specialty-header">
+          <div class="item-name">Name</div>
+          <div class="item-value">Value</div>
+          <div class="item-controls">
+            <a class="item-control specialty-create" title="Create Specialty" data-type="specialty"><i
+                class="fas fa-plus"></i> Add specialty</a>
           </div>
         </li>
         <ul class="items-list">
           {{#each data.specialties as |specialty id|}}
           <li class="specialty flexrow" data-specialty-name="{{specialty.key}}">
-            <div class="specialty-name">
+            <div class="item-name">
               <label>{{specialty.key}}</label>
-              <a class="specialty-control specialty-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
-              <input class="rename-field" type="text" value="{{specialty.key}}" data-dtype="Text" style="display: none;" />
-              <a class="specialty-control specialty-rename" title="Rename Specialty" style="display: none;"><i class="fas fa-check"></i></a>
+              <a class="item-control specialty-edit" title="Edit Specialty"><i class="fas fa-edit"></i></a>
+              <input class="rename-field" type="text" value="{{specialty.key}}" data-dtype="Text"
+                style="display: none;" />
+              <a class="item-control specialty-rename" title="Rename Specialty" style="display: none;"><i
+                  class="fas fa-check"></i></a>
             </div>
-            <div class="specialty-value">
-              <a class="specialty-control specialty-decrease" title="Increase Specialty"><i
+            <div class="item-value">
+              <a class="item-control specialty-decrease" title="Increase Specialty"><i
                   class="fas fa-minus"></i></a>
               {{specialty.value}}
-              <a class="specialty-control specialty-increase" title="Increase Specialty"><i class="fas fa-plus"></i></a>
+              <a class="item-control specialty-increase" title="Increase Specialty"><i class="fas fa-plus"></i></a>
             </div>
-            <div class="specialty-controls">
-              <a class="specialty-control specialty-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
+            <div class="item-controls">
+              <a class="item-control specialty-delete" title="Delete Specialty"><i class="fas fa-trash"></i></a>
             </div>
           </li>
           {{/each}}
@@ -202,24 +203,23 @@
 
     {{!-- Occupation Tab --}}
     <div class="tab occupation" data-group="primary" data-tab="occupation">
-      <ol class="talent-list">
-        <li class="item flexrow talent-header">
-          <div class="talent-image"></div>
-          <div class="talent-name">Name</div>
-          <div class="talent-controls">
-            <a class="talent-control item-create" title="Create talent" data-type="talent"><i class="fas fa-plus"></i>
-              Add
-              talent</a>
+      <ol class="items-list">
+        <li class="flexrow item-header">
+          <div class="item-image"></div>
+          <div class="item-name">Name</div>
+          <div class="item-controls">
+            <a class="item-control item-create" title="Create talent" data-type="talent"><i class="fas fa-plus"></i>
+              Add talent</a>
           </div>
         </li>
         <ul class="items-list">
           {{#each data.talents as |talent id|}}
           <li class="item flexrow" data-item-id="{{talent._id}}">
-            <div class="talent-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
-            <div class="talent-name">{{talent.name}}</div>
-            <div class="talent-controls">
-              <a class="talent-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
-              <a class="talent-control item-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
+            <div class="item-image"><img src="{{talent.img}}" title="{{talent.name}}" width="24" height="24" /></div>
+            <div class="item-name">{{talent.name}}</div>
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Talent"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Talent"><i class="fas fa-trash"></i></a>
             </div>
           </li>
           {{/each}}
@@ -229,40 +229,40 @@
 
     {{!-- Assets Tab --}}
     <div class="tab assets" data-group="primary" data-tab="assets">
-      <ul class="assets-list">
-        <li class="item flexrow asset-header">
-          <div class="asset-image"></div>
-          <div class="asset-name">Name</div>
-          <div class="asset-cost">Cost</div>
-          <div class="asset-tags">Tags</div>
-          <div class="asset-controls">
-            <a class="asset-control item-create" title="Create asset" data-type="asset"><i class="fas fa-plus"></i> Add
+      <ol class="items-list">
+        <li class="flexrow item-header">
+          <div class="item-image"></div>
+          <div class="item-name">Name</div>
+          <div class="item-cost">Cost</div>
+          <div class="item-tags">Tags</div>
+          <div class="item-controls">
+            <a class="item-control item-create" title="Create asset" data-type="asset"><i class="fas fa-plus"></i> Add
               asset</a>
           </div>
         </li>
         <ul class="items-list">
           {{#each data.assets as |asset id|}}
           <li class="item flexrow" data-item-id="{{asset._id}}">
-            <div class="asset-image"><img src="{{asset.img}}" title="{{asset.name}}" width="24" height="24" /></div>
-            <div class="asset-name">{{asset.name}}</div>
-            <div class="asset-cost">{{asset.data.cost}}</div>
-            <div class="asset-tags">{{asset.data.tags}}</div>
-            <div class="asset-controls">
-              <a class="asset-control item-edit" title="Edit Asset"><i class="fas fa-edit"></i></a>
-              <a class="asset-control item-delete" title="Delete Asset"><i class="fas fa-trash"></i></a>
+            <div class="item-image"><img src="{{asset.img}}" title="{{asset.name}}" width="24" height="24" /></div>
+            <div class="item-name">{{asset.name}}</div>
+            <div class="item-cost">{{asset.data.cost}}</div>
+            <div class="item-tags">{{asset.data.tags}}</div>
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Asset"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Asset"><i class="fas fa-trash"></i></a>
             </div>
           </li>
           {{/each}}
         </ul>
-      </ul>
-      <ol class="augmentations-list">
-        <li class="item flexrow asset-header">
-          <div class="augmentation-image"></div>
-          <div class="augmentation-name">Name</div>
-          <div class="augmentation-cost">Cost</div>
-          <div class="augmentation-tags">Tags</div>
-          <div class="augmentation-controls">
-            <a class="augmentation-control item-create" title="Create augmentation" data-type="augmentation"><i
+      </ol>
+      <ol class="items-list">
+        <li class="flexrow item-header">
+          <div class="item-image"></div>
+          <div class="item-name">Name</div>
+          <div class="item-cost">Cost</div>
+          <div class="item-tags">Tags</div>
+          <div class="item-controls">
+            <a class="item-control item-create" title="Create augmentation" data-type="augmentation"><i
                 class="fas fa-plus"></i> Add
               augmentation</a>
           </div>
@@ -270,14 +270,14 @@
         <ul class="items-list">
           {{#each data.augmentations as |augmentation id|}}
           <li class="item flexrow" data-item-id="{{augmentation._id}}">
-            <div class="augmentation-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24"
+            <div class="item-image"><img src="{{augmentation.img}}" title="{{augmentation.name}}" width="24"
                 height="24" /></div>
-            <div class="augmentation-name">{{augmentation.name}}</div>
-            <div class="augmentation-cost">{{augmentation.data.cost}}</div>
-            <div class="augmentation-tags">{{augmentation.data.tags}}</div>
-            <div class="augmentation-controls">
-              <a class="augmentation-control item-edit" title="Edit Augmentation"><i class="fas fa-edit"></i></a>
-              <a class="augmentation-control item-delete" title="Delete Augmentation"><i class="fas fa-trash"></i></a>
+            <div class="item-name">{{augmentation.name}}</div>
+            <div class="item-cost">{{augmentation.data.cost}}</div>
+            <div class="item-tags">{{augmentation.data.tags}}</div>
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Augmentation"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Augmentation"><i class="fas fa-trash"></i></a>
             </div>
           </li>
           {{/each}}

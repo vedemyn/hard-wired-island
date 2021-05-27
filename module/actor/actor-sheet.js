@@ -147,30 +147,22 @@ export class HWIActorSheet extends ActorSheet {
     });
 
     html.find('.specialty-create').click(ev => {
-      this.actor.addSpecialty("Name", 1).then(function (result) {
-        console.log('Added', result);
-      });
+      this.actor.addSpecialty("Name", 1);
     });
 
     html.find('.specialty-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".specialty");
-      this.actor.deleteSpecialty(li.data("specialtyName")).then(function (result) {
-        console.log('Deleted', result);
-      });
+      this.actor.deleteSpecialty(li.data("specialtyName"));
     });
 
     html.find('.specialty-decrease').click(ev => {
       const li = $(ev.currentTarget).parents(".specialty");
-      this.actor.modifySpecialty(li.data("specialtyName"), -1).then(function (result) {
-        console.log('decreased specialty', result);
-      });
+      this.actor.modifySpecialty(li.data("specialtyName"), -1);
     });
 
     html.find('.specialty-increase').click(ev => {
       const li = $(ev.currentTarget).parents(".specialty");
-      this.actor.modifySpecialty(li.data("specialtyName"), 1).then(function (result) {
-        console.log('increased specialty', result);
-      });
+      this.actor.modifySpecialty(li.data("specialtyName"), 1);
     });
 
     html.find('.specialty-edit').click(ev => {

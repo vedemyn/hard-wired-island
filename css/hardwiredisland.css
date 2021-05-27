@@ -216,15 +216,36 @@
 
 .hardwiredisland .items-list .item-header {
   font-weight: bold;
+  background: #AF79AC;
+}
+
+.hardwiredisland .items-list .specialty-header {
+  font-weight: bold;
+  background: #006B86;
 }
 
 .hardwiredisland .items-list .item {
   line-height: 24px;
   padding: 3px 0;
-  border-bottom: 1px solid #BBB;
 }
 
-.hardwiredisland .items-list .item .item-image {
+.hardwiredisland .items-list .item:nth-child(odd) {
+  background: #F9F6F9;
+}
+
+.hardwiredisland .items-list .item:nth-child(even) {
+  background: #F2E9F1;
+}
+
+.hardwiredisland .items-list .specialty:nth-child(odd) {
+  background: #F3F8F9;
+}
+
+.hardwiredisland .items-list .specialty:nth-child(even) {
+  background: #E3EFF1;
+}
+
+.hardwiredisland .items-list .item-image {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
@@ -256,11 +277,11 @@
 }
 
 .hardwiredisland .baseinfo {
-  flex: 3.5;
+  flex: 3;
 }
 
 .hardwiredisland .personalia{
-  flex: 2;
+  flex: 2.5;
 }
 
 .hardwiredisland .item-description {

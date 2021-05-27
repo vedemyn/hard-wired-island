@@ -1,21 +1,21 @@
-// .tabs {
-//   .item {
-//     background: rgba(0, 0, 0, 0.125);
-//     border: 1px solid;
-//     border-radius: 4px;
-//     margin: 0 10px 0;
-//     padding: 8px 4px;
+.tabs {
+  .item {
+    background: rgba(0, 0, 0, 0.125);
+    border: 1px solid;
+    border-radius: 4px;
+    margin: 0 10px 0;
+    padding: 8px 4px;
 
-//     &:hover,
-//     &:focus {
-//       background: rgba(0, 0, 0, 0.125);
-//     }
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.125);
+    }
 
-//     &.active {
-//       background: transparent;
-//     }
-//   }
-// }
+    &.active {
+      background: transparent;
+    }
+  }
+}
 
 .tabs {
   height: 40px;
