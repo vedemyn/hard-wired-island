@@ -37,6 +37,7 @@
       "experience": "",
       "origin": {},
       "occupation": "",
+      "traits": [],
       "specialties": {},
       "nonItemSpecialties": {},
       "talents": [],
@@ -59,7 +60,7 @@
         }
       },
       "goal": "",
-      "gigapp": {},
+      "gigapps": [],
       "notes": ""
     }
   },
@@ -69,7 +70,8 @@
       "talent",
       "augmentation",
       "origin",
-      "gigapp"
+      "gigapp",
+      "trait"
     ],
     "templates": {
       "base": {
@@ -107,6 +109,12 @@
       "templates": [
         "base"
       ]
+    },
+    "trait": {
+      "templates":[
+        "base"
+      ],
+      "specialties": {}
     }
   }
 }

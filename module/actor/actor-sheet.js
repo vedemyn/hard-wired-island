@@ -11,7 +11,7 @@ export class HWIActorSheet extends ActorSheet {
       template: "systems/hard-wired-island/templates/actor/actor-sheet.html",
       width: 720,
       height: 800,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "specialties" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "traits-gigapps" }]
     });
   }
 
@@ -46,9 +46,10 @@ export class HWIActorSheet extends ActorSheet {
     const talents = [];
     const augmentations = [];
     const occupations = [];
+    const traits = [];
+    const gigapps = [];
 
     let origin_item;
-    let gigapp;
 
     for (let i of sheetData.items) {
       let item = i.data;
@@ -62,6 +63,10 @@ export class HWIActorSheet extends ActorSheet {
         augmentations.push(i);
       } else if (i.type === 'occupation') {
         occupations.push(i);
+      } else if (i.type === 'trait') {
+        traits.push(i);
+      } else if (i.type === 'gigapp') {
+        gigapps.push(i);
       } else if (i.type === 'origin') {
         if (origin_item) {
           this.actor.deleteOwnedItem(origin_item._id); //highlander
@@ -69,15 +74,7 @@ export class HWIActorSheet extends ActorSheet {
         } else {
           origin_item = i;
         }
-      } else if (i.type === 'gigapp') {
-        if (gigapp) {
-          this.actor.deleteOwnedItem(gigapp._id); //highlander
-          gigapp = i;
-        } else {
-          gigapp = i;
-        }
-      }
-
+      } 
     }
 
     actorData.assets = assets;
@@ -85,7 +82,8 @@ export class HWIActorSheet extends ActorSheet {
     actorData.augmentations = augmentations;
     actorData.occupations = occupations;
     actorData.origin = origin_item;
-    actorData.gigapp = gigapp;
+    actorData.traits = traits;
+    actorData.gigapps = gigapps;
   }
 
   _itemDisplayDescription(item, event) {

@@ -31,7 +31,7 @@ Hooks.once('init', async function () {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("hardwiredisland", HWIActorSheet, { types: ["character"], label: "Character Sheet", makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("hardwiredisland", HWIItemSheet, { types: ["asset", "talent", "augmentation", "specialty", "origin", "gigapp"], label: "Item Sheet", makeDefault: true });
+  Items.registerSheet("hardwiredisland", HWIItemSheet, { types: ["asset", "talent", "augmentation", "specialty", "origin", "gigapp", "trait"], label: "Item Sheet", makeDefault: true });
 
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function () {
